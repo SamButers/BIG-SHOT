@@ -35,5 +35,10 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function({ addVariant }) {
+      addVariant('children', '&>*')
+      addVariant('last-child', '&>*:last-child')
+    })
+  ],
 }
