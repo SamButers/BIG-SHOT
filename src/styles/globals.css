@@ -2,6 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+	font-family: 'Blazma';
+	src: url("../public/assets/fonts/blazma/Blazma.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Blazma';
+	src: url("../public/assets/fonts/blazma/BlazmaItalic.ttf") format("truetype");
+	font-style: italic;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Glametrix';
+	src: url("../public/assets/fonts/glametrix/Glametrix.otf") format("opentype");
+	font-style: normal;
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Glametrix';
+	src: url("../public/assets/fonts/glametrix/GlametrixBold.otf") format("opentype");
+	font-style: normal;
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Glametrix';
+	src: url("../public/assets/fonts/glametrix/GlametrixLight.otf") format("opentype");
+	font-style: normal;
+	font-weight: 300;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
