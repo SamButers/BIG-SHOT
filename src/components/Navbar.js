@@ -34,12 +34,13 @@ class Navbar extends React.Component {
 	}
 
 	render() {
-		return this.props.navbar && (
-			<div className={`w-full h-navbar-height bg-p-black flex flex-row px-4 absolute left-0 top-0 z-[900] items-center justify-between`}>
+		return (
+			<div className={`w-full h-navbar-height bg-p-black flex flex-row px-4 left-0 top-0 z-[900] items-center justify-between ${this.props.position}`}>
 				<Link href="/" className={`w-[104px] select-none`}>
 					<Image src={logoLight}
 						alt="Big shot logo"
 						layout="responsive"
+						draggable="false"
 					/>
 				</Link>
 
