@@ -25,6 +25,7 @@ class Navbar extends React.Component {
 	}
 
 	componentDidMount() {
+		console.log(this.props)
 		this.props.router.events.on("routeChangeComplete", this.closeMenu);
 	}
 
@@ -43,7 +44,10 @@ class Navbar extends React.Component {
 				</Link>
 
 				<div>
-					<nav className={`hidden lg:flex flex-row gap-x-3 mt-2 text-white font-glametrix font-light text-4xl`}>
+					<nav className={`flex font-glametrix font-light text-white
+						flex-col absolute right-0 top-full text-4xl bg-p-black text-right px-2 -mt-px transition-[max-height] ease-in-out duration-1000 ${this.state.isMenuHidden ? 'max-h-0' : 'max-h-[200px]'}
+						lg:flex-row lg:static lg:gap-x-3 lg:mt-2 lg:bg-transparent lg:px-0 lg:max-h-none
+					`}>
 						<Link className="duration-300 hover:text-secondary-500" href="/">[ Home ]</Link>
 						<Link className="duration-300 hover:text-secondary-500" href="/#about">[ About ]</Link>
 						<Link className="duration-300 hover:text-secondary-500" href="/#our-games">[ Our Games ]</Link>
@@ -51,7 +55,7 @@ class Navbar extends React.Component {
 						<Link className="duration-300 hover:text-secondary-500" href="/#contact-us">[ Contact Us ]</Link>
 					</nav>
 
-					<GiHamburgerMenu className={`text-secondary-500 text-4xl
+					<GiHamburgerMenu className={`text-secondary-500 text-4xl duration-300 ${this.state.isMenuHidden ? 'text-white' : 'text-secondary-500'}
 						lg:hidden
 					`} onClick={() => this.setState({isMenuHidden: !this.state.isMenuHidden})} />
 				</div>
