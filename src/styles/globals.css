@@ -4,59 +4,40 @@
 
 @font-face {
 	font-family: 'Blazma';
-	src: url("../public/assets/fonts/blazma/Blazma.ttf") format("truetype");
+	src: url("../../public/assets/fonts/blazma/Blazma.ttf") format("truetype");
 	font-style: normal;
 	font-weight: normal;
+	font-display: block;
 }
 
 @font-face {
 	font-family: 'Blazma';
-	src: url("../public/assets/fonts/blazma/BlazmaItalic.ttf") format("truetype");
+	src: url("../../public/assets/fonts/blazma/BlazmaItalic.ttf") format("truetype");
 	font-style: italic;
 	font-weight: normal;
+	font-display: block;
 }
 
 @font-face {
 	font-family: 'Glametrix';
-	src: url("../public/assets/fonts/glametrix/Glametrix.otf") format("opentype");
+	src: url("../../public/assets/fonts/glametrix/Glametrix.otf") format("opentype");
 	font-style: normal;
 	font-weight: normal;
+	font-display: block;
 }
 
 @font-face {
 	font-family: 'Glametrix';
-	src: url("../public/assets/fonts/glametrix/GlametrixBold.otf") format("opentype");
+	src: url("../../public/assets/fonts/glametrix/GlametrixBold.otf") format("opentype");
 	font-style: normal;
 	font-weight: bold;
+	font-display: block;
 }
 
 @font-face {
 	font-family: 'Glametrix';
-	src: url("../public/assets/fonts/glametrix/GlametrixLight.otf") format("opentype");
+	src: url("../../public/assets/fonts/glametrix/GlametrixLight.otf") format("opentype");
 	font-style: normal;
 	font-weight: 300;
-}
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	font-display: block;
 }

@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const plugin = require('tailwindcss/plugin');
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -17,7 +20,8 @@ module.exports = {
           300: '#B1AB27',
           500: '#FFF301',
           700: '#FFF868'
-        }
+        },
+        'p-black': '#101010'
       },
 
       fontFamily: {
@@ -32,6 +36,14 @@ module.exports = {
         '3xl': '1920px',
         '4xl': '3840px',
         '5xl': '7680px'
+      },
+
+      spacing: {
+        'navbar-height': '72px'
+      },
+
+      height: {
+        'navbar-height': '72px'
       }
     },
   },

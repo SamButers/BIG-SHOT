@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 65.873398 30.236437"
+   height="30.236437mm"
+   width="65.873398mm">
+  <title
+     id="title969">BIGSHOT_Logo</title>
+  <defs
+     id="defs2" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>BIGSHOT_Logo</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-72.86737,-83.989963)"
+     id="layer1">
+    <path
+       transform="matrix(0.99028319,0,0,1.0300068,1.0934384,-2.6591352)"
+       id="path948"
+       d="m 98.966833,93.117 c 4.666017,-0.801959 8.423707,-0.752078 13.542257,0 l 2.1e-4,5.989863 -2.1e-4,5.989867 c -5.11855,0.75207 -8.87624,0.80196 -13.542257,0 v -5.989867 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26437;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       transform="translate(0.52916667)"
+       id="path910"
+       d="m 75.200874,84.262983 c 6.899745,-1.022182 15.573422,0.583156 23.897653,8.989025 v 12.350772 c -11.208653,8.82724 -17.243115,8.50015 -23.532245,8.62362 -4.09663,-8.03917 -4.376931,-19.757159 -0.365408,-29.963417 z"
+       style="fill:#ffaec9;fill-opacity:1;stroke:none;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       style="fill:#fff301;fill-opacity:1;stroke:none;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 75.200874,84.262983 c 6.899745,-1.022182 15.573422,0.583156 23.897653,8.989025 v 12.350772 c -11.208653,8.82724 -17.243115,8.50015 -23.532245,8.62362 -4.09663,-8.03917 -4.376931,-19.757159 -0.365408,-29.963417 z"
+       id="mirror-path-effect944"
+       transform="matrix(-1,0,0,1,211.07897,0)" />
+  </g>
+</svg>
