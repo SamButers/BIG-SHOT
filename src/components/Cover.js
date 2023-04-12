@@ -12,6 +12,7 @@ class Cover extends React.Component {
                     sm:w-[50%]
                     md:w-[672px]
                     lg:w-[672px]
+                    4xl:w-[1345px]
                 `}>
                     <Image src={lockupLight}
                         alt="Big shot logo"
@@ -25,6 +26,7 @@ class Cover extends React.Component {
                     sm:text-4xl
                     md:text-5xl
                     lg:text-[4rem] lg:leading-[5rem]
+                    4xl:text-9xl
                 `}>
                     <span>[NOW IS YOUR CHANCE TO BE]</span>
                     <span>[A]</span>
