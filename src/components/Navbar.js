@@ -45,7 +45,7 @@ class Navbar extends React.Component {
 				</Link>
 
 				<div>
-					<nav className={`flex font-glametrix font-light text-white
+					<nav className={`flex font-glametrix font-light text-white overflow-hidden
 						flex-col absolute right-0 top-full text-4xl bg-p-black text-right px-2 -mt-px transition-[max-height] ease-in-out duration-1000 ${this.state.isMenuHidden ? 'max-h-0' : 'max-h-[200px]'}
 						lg:flex-row lg:static lg:gap-x-3 lg:mt-2 lg:bg-transparent lg:px-0 lg:max-h-none
 					`}>
