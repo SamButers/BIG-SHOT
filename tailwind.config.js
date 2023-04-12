@@ -39,7 +39,8 @@ module.exports = {
       },
 
       spacing: {
-        'navbar-height': '72px'
+        'navbar-height': '72px',
+        'navbar-height-4xl': '144px'
       },
 
       height: {
