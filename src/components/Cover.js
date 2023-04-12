@@ -6,8 +6,13 @@ import lockupLight from '$/imgs/LockupLight.svg';
 class Cover extends React.Component {
     render() {
         return (
-            <div className="w-full h-screen bg-p-black flex flex-col justify-around items-center">
-                <div className={`w-[672px] select-none`}>
+            <div className="w-full h-screen bg-p-black flex flex-col justify-evenly items-center">
+                <div className={`select-none
+                    w-[90%]
+                    sm:w-[50%]
+                    md:w-[672px]
+                    lg:w-[672px]
+                `}>
                     <Image src={lockupLight}
                         alt="Big shot logo"
                         layout="responsive"
@@ -15,7 +20,12 @@ class Cover extends React.Component {
                     />
                 </div>
 
-                <div class={`flex flex-col text-[4rem] leading-[5rem] text-white text-center font-blazma select-none`}>
+                <div class={`flex flex-col text-white text-center font-blazma select-none
+                    text-5xl
+                    sm:text-4xl
+                    md:text-5xl
+                    lg:text-[4rem] lg:leading-[5rem]
+                `}>
                     <span>[NOW IS YOUR CHANCE TO BE]</span>
                     <span>[A]</span>
                     <span>[BIG SHOT!]</span>
