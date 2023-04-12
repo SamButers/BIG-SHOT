@@ -21,7 +21,7 @@ class Cover extends React.Component {
                     />
                 </div>
 
-                <div class={`flex flex-col text-white text-center font-blazma select-none
+                <div className={`flex flex-col text-white text-center font-blazma select-none
                     text-5xl
                     sm:text-4xl
                     md:text-5xl

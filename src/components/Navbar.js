@@ -25,7 +25,6 @@ class Navbar extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props)
 		this.props.router.events.on("routeChangeComplete", this.closeMenu);
 	}
 
