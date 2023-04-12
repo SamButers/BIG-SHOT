@@ -2,6 +2,7 @@ import Image from 'next/image'
 
 import Cover from '@/components/Cover';
 import StickyNavbar from '@/components/StickyNavbar';
+import About from '@/components/About';
 
 import Page from '@/utils/Page';
 
@@ -10,9 +11,9 @@ class Home extends Page {
 		return (
 			<main className={`w-full overflow-x-hidden}`}>
 				<Cover />
-				<div className="w-full relative">
+				<div className="w-full relative bg-white">
 					<StickyNavbar />
-					<div className="bg-red-500 h-[350vh]"></div>
+					<About />
 				</div>
 			</main>
 		)
