@@ -1,15 +1,20 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+import Cover from '@/components/Cover';
 
-export default function Home() {
-	return (
-		<main>
-			
-		</main>
-	)
+import Page from '@/utils/Page';
+
+class Home extends Page {
+	render() {
+		return (
+			<main className={`w-full overflow-x-hidden}`}>
+				<Cover />
+			</main>
+		)
+	}
 }
+
+export default Home;
 
 export async function getStaticProps() {
 	return {

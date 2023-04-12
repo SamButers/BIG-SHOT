@@ -6,7 +6,10 @@ export default function App({ Component, pageProps }) {
 	return (
 		<>
 			<Navbar {...pageProps} />
-			<Component {...pageProps} />
+			<Component
+				className="pt-navbar-height"
+				{...pageProps}
+			/>
 		</>
 	)
 }
