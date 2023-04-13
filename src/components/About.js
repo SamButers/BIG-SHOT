@@ -56,10 +56,10 @@ class About extends React.Component {
 
 	render() {
 		return (
-			<div className={`w-full
-				mt-8 mb-4
-				sm:mt-2
-				lg:mt-16 lg:mb-8
+			<section id="about" className={`w-full
+				pt-8 mb-4
+				sm:pt-2
+				lg:pt-16 lg:mb-8
 			`}>
 				<div className={`flex flex-col items-center
 					mb-4
@@ -179,7 +179,7 @@ class About extends React.Component {
 						</Card>
 					</InView>
 				</div>
-			</div>
+			</section>
 		);
 	}
 }
