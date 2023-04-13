@@ -13,7 +13,7 @@ class Card extends React.Component {
 						transitionDelay: `${this.props.transitionDelay}ms`
 					}}
 				>
-					<this.props.Icon className="text-primary-500 text-[8rem]" />
+					<this.props.Icon className="text-primary-500 text-[8rem] 4xl:text-[12rem]" />
 				</div>
 
 				<div className={`flex flex-col items-center bg-white relative z-10 duration-500 ${this.props.isOpen ? 'translate-y-0 shadow-2xl' : '-translate-y-1/2 shadow-none'} ${this.props.sizeClassNames}`}
