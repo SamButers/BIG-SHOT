@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 import Cover from '@/components/Cover';
 import StickyNavbar from '@/components/StickyNavbar';
 import About from '@/components/About';

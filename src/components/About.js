@@ -10,6 +10,9 @@ import Card from '@/components/Card';
 
 import { isPhoneBreakpoint } from '@/utils/device';
 import { debounce } from '@/utils/general';
+import withContexts from '@/utils/withContexts';
+
+import deviceContext from '@/contexts/deviceContext';
 
 import logo from '$/imgs/LogoDefault.svg';
 
@@ -18,12 +21,12 @@ class About extends React.Component {
 		super(props);
 
 		this.state = {
-			areCardsOpen: false,
-			isPhoneBreakpoint: false
+			areCardsOpen: false
 		};
 
 		this.updateCardsState = this.updateCardsState.bind(this);
 		this.updateIsPhoneBreakpoint = this.updateIsPhoneBreakpoint.bind(this);
+		this.isCardOpen = this.isCardOpen.bind(this);
 
 		this.debouncedUpdateIsPhoneBreakpoint = debounce(this.updateIsPhoneBreakpoint, 50);
 	}
@@ -42,16 +45,8 @@ class About extends React.Component {
 		});
 	}
 
-	componentDidMount() {
-		this.updateIsPhoneBreakpoint();
-
-		window.addEventListener('resize', this.debouncedUpdateIsPhoneBreakpoint);
-		window.addEventListener('orientationchange', this.debouncedUpdateIsPhoneBreakpoint);
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener('resize', this.debouncedUpdateIsPhoneBreakpoint);
-		window.removeEventListener('orientationchange', this.debouncedUpdateIsPhoneBreakpoint);
+	isCardOpen() {
+		return this.props.contexts.device.isAtPhoneBreakpoint || this.state.areCardsOpen;
 	}
 
 	render() {
@@ -111,7 +106,7 @@ class About extends React.Component {
 							lg:w-[225px] lg:w-[135px]
 							xl:w-[286px] xl:h-[172px]
 							4xl:w-[572px] 4xl:h-[344px]
-						`} isOpen={this.state.areCardsOpen} transitionDelay={0}>
+						`} isOpen={this.isCardOpen()} transitionDelay={0}>
 							<h2 className={`font-blazma text-primary-500 select-none
 								text-4xl
 								4xl:text-6xl
@@ -129,7 +124,7 @@ class About extends React.Component {
 							lg:w-[225px] lg:w-[135px]
 							xl:w-[286px] xl:h-[172px]
 							4xl:w-[572px] 4xl:h-[344px]
-						`} isOpen={this.state.areCardsOpen} transitionDelay={50}>
+						`} isOpen={this.isCardOpen()} transitionDelay={50}>
 							<h2 className={`font-blazma text-primary-500 select-none
 								text-4xl
 								4xl:text-6xl
@@ -147,7 +142,7 @@ class About extends React.Component {
 							lg:w-[225px] lg:w-[135px]
 							xl:w-[286px] xl:h-[172px]
 							4xl:w-[572px] 4xl:h-[344px]
-						`} isOpen={this.state.areCardsOpen} transitionDelay={100}>
+						`} isOpen={this.isCardOpen()} transitionDelay={100}>
 							<h2 className={`font-blazma text-primary-500 select-none
 								text-4xl
 								4xl:text-6xl
@@ -165,7 +160,7 @@ class About extends React.Component {
 							lg:w-[225px] lg:w-[135px]
 							xl:w-[286px] xl:h-[172px]
 							4xl:w-[572px] 4xl:h-[344px]
-						`} isOpen={this.state.areCardsOpen} transitionDelay={150}>
+						`} isOpen={this.isCardOpen()} transitionDelay={150}>
 							<h2 className={`font-blazma text-primary-500 select-none
 								text-4xl
 								4xl:text-6xl
@@ -184,4 +179,4 @@ class About extends React.Component {
 	}
 }
 
-export default About;
+export default withContexts(About, {device: deviceContext});
