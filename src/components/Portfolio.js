@@ -5,39 +5,15 @@ import { FaLessThan, FaGreaterThan } from 'react-icons/fa';
 
 import anime from 'animejs/lib/anime';
 
+import GameGrid from './GameGrid';
+
+import exampleImage1 from '$/imgs/001.webp';
+import exampleImage2 from '$/imgs/002.webp';
+import exampleImage3 from '$/imgs/003.webp';
+
 class Portfolio extends React.Component {
 	constructor(props) {
 		super(props);
-
-		this.gridRef = createRef();
-
-		this.animateGrid = this.animateGrid.bind(this);
-	}
-
-	animateGrid(from) {
-		anime({
-			targets: this.gridRef.current.children,
-			scale: [
-				{
-					value: 0,
-					easing: 'easeOutSine',
-					duration: 500
-				},
-
-				{
-					value: 0,
-					easing: 'easeOutSine',
-					duration: 500
-				},
-
-				{
-					value: 1,
-					easing: 'easeInOutQuad',
-					duration: 1200
-				}
-			],
-			delay: anime.stagger(200, {grid: [5, 2], from})
-		});
 	}
 
 	render() {
@@ -54,28 +30,7 @@ class Portfolio extends React.Component {
 						4xl:text-[8rem] 4xl:leading-[8rem]
 					`}>[ OUR GAMES ]</h1>
 
-					<div className="flex flex-row gap-x-2">
-						<button className="h-auto px-2 bg-[#101010A0] text-2xl text-white duration-200 hover:will-change-transform hover:scale-95" onClick={() => this.animateGrid('first')}>
-							<FaLessThan />
-						</button>
-
-						<div className={`grid grid-rows-2 grid-cols-5 gap-x-2 gap-y-2`} ref={this.gridRef}>
-							<div className="w-[200px] aspect-square bg-p-black"></div>
-							<div className="w-[200px] aspect-square bg-p-black"></div>
-							<div className="w-[200px] aspect-square bg-p-black"></div>
-							<div className="w-[200px] aspect-square bg-p-black"></div>
-							<div className="w-[200px] aspect-square bg-p-black"></div>
-							<div className="w-[200px] aspect-square bg-p-black"></div>
-							<div className="w-[200px] aspect-square bg-p-black"></div>
-							<div className="w-[200px] aspect-square bg-p-black"></div>
-							<div className="w-[200px] aspect-square bg-p-black"></div>
-							<div className="w-[200px] aspect-square bg-p-black"></div>
-						</div>
-
-						<button className="h-auto px-2 bg-[#101010A0] text-2xl text-white duration-200 hover:will-change-transform hover:scale-95" onClick={() => this.animateGrid('last')}>
-							<FaGreaterThan />
-						</button>
-					</div>
+					<GameGrid />
 				</div>
 			</section>
 		);
