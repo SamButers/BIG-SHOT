@@ -14,7 +14,7 @@ import exampleImage2 from '$/imgs/002.webp';
 import exampleImage3 from '$/imgs/003.webp';
 
 const landscapeQuantity = 10;
-const portraitQuantity = 4;
+const portraitPhoneQuantity = 4;
 
 class GameGrid extends React.Component {
 	constructor(props) {
@@ -143,7 +143,8 @@ class GameGrid extends React.Component {
 
 	updateGameQuantity() {
 		const isPortrait = this.props.contexts.device.isPortrait;
-		const quantity = isPortrait ? portraitQuantity : landscapeQuantity;
+		const isAtPhoneBreakpoint = this.props.contexts.device.isAtPhoneBreakpoint;
+		const quantity = isPortrait && isAtPhoneBreakpoint ? portraitPhoneQuantity : landscapeQuantity;
 
 		if(quantity != this.state.gameQuantity) {
 			this.setState({
@@ -163,8 +164,17 @@ class GameGrid extends React.Component {
 		let c = 0;
 		for(; c < quantity; c += 1) {
 			items.push(
-				<div className={`w-[200px] aspect-square flex justify-center items-center relative group hover:cursor-pointer`} key={c}>
-					<span className={`w-full font-blazma text-primary-500 text-2xl text-center relative z-10 bg-p-black opacity-0 duration-500 group-hover:opacity-100 group-hover:will-change-transform`}>{ this.games[this.state.currentGameIndex + c].name }</span>
+				<div className={`aspect-square flex justify-center items-center relative group hover:cursor-pointer
+					w-[100px]
+					md:w-[120px]
+					lg:w-[150px]
+					xl:w-[200px]
+				`} key={c}>
+					<span className={`w-full font-blazma text-primary-500 text-center relative z-10 bg-p-black opacity-0 duration-500 select-none group-hover:opacity-100 group-hover:will-change-transform
+						text-lg
+						md:text-xl
+						lg:text-2xl
+					`}>{ this.games[this.state.currentGameIndex + c].name }</span>
 
 					<Image src={this.games[this.state.currentGameIndex + c].img}
 						alt="Game image"
@@ -174,6 +184,7 @@ class GameGrid extends React.Component {
 						onLoadingComplete={this.incrementLoading}
 						key={this.state.currentGameIndex + c}
 						className="duration-500 group-hover:scale-105"
+						draggable="false"
 					/>
 				</div>
 			);
@@ -181,7 +192,11 @@ class GameGrid extends React.Component {
 
 		for(; c < this.state.gameQuantity; c += 1) {
 			items.push(
-				<div className={`w-[200px] aspect-square relative`} key={c}>
+				<div className={`aspect-square relative
+					w-[100px]
+					lg:w-[150px]
+					xl:w-[200px]
+				`} key={c}>
 				</div>
 			);
 		}
@@ -194,25 +209,36 @@ class GameGrid extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if(prevProps.contexts.device.isPortrait != this.props.contexts.device.isPortrait)
+		if((prevProps.contexts.device.isPortrait != this.props.contexts.device.isPortrait) || (prevProps.contexts.device.isAtPhoneBreakpoint != this.props.contexts.device.isAtPhoneBreakpoint)) {
 			this.updateGameQuantity();
+		}
 	}
 
 	render() {
 		return (
 			<div className="flex flex-row gap-x-2">
-				<button className="h-auto px-2 bg-[#101010A0] text-2xl text-white duration-200 disabled:bg-[#A0A0A0A0] hover:will-change-transform enabled:hover:scale-95"
+				<button className={`h-auto px-2 bg-[#101010A0] text-white duration-200 disabled:bg-[#A0A0A0A0] hover:will-change-transform enabled:hover:scale-95
+					text-lg
+					lg:text-2xl
+				`}
 					disabled={this.state.currentGameIndex - this.state.gameQuantity < 0}
 					onClick={() => this.animateGridOut(true)}
 				>
 					<FaLessThan />
 				</button>
 
-				<div className={`grid grid-rows-2 grid-cols-5 gap-x-2 gap-y-2 grid-flow-col`} ref={this.gridRef}>
+				<div className={`grid gap-x-2 gap-y-2 grid-flow-col
+					grid-rows-2 grid-cols-2
+					md:grid-rows-2 md:grid-cols-5
+					lg:grid-rows-2 lg:grid-cols-5
+				`} ref={this.gridRef}>
 					{ this.renderGridItems() }
 				</div>
 
-				<button className="h-auto px-2 bg-[#101010A0] text-2xl text-white duration-200 disabled:bg-[#A0A0A0A0] hover:will-change-transform enabled:hover:scale-95"
+				<button className={`h-auto px-2 bg-[#101010A0] text-white duration-200 disabled:bg-[#A0A0A0A0] hover:will-change-transform enabled:hover:scale-95
+					text-lg
+					lg:text-2xl
+				`}
 					disabled={this.games.length - this.state.currentGameIndex - this.state.gameQuantity < 0}
 					onClick={() => this.animateGridOut(false)}
 				>
