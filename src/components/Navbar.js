@@ -58,8 +58,8 @@ class Navbar extends React.Component {
 						<Link className="duration-300 hover:text-secondary-500" href="/">[ Home ]</Link>
 						<Link className="duration-300 hover:text-secondary-500" href="/#about">[ About ]</Link>
 						<Link className="duration-300 hover:text-secondary-500" href="/#our-games">[ Our Games ]</Link>
-						<Link className="duration-300 hover:text-secondary-500" href="/#news">[ News ]</Link>
 						<Link className="duration-300 hover:text-secondary-500" href="/#contact-us">[ Contact Us ]</Link>
+						<Link className="duration-300 hover:text-secondary-500" href="/news">[ News ]</Link>
 					</nav>
 
 					<GiHamburgerMenu className={`text-secondary-500 text-4xl duration-300 ${this.state.isMenuHidden ? 'text-white' : 'text-secondary-500'}

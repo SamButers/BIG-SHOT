@@ -18,7 +18,7 @@ class Portfolio extends React.Component {
 
 	render() {
 		return (
-			<section className={`w-full
+			<section id="our-games" className={`w-full
 				mb-4
 				lg:mb-8
 			`}>
