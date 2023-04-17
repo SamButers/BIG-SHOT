@@ -239,7 +239,7 @@ class GameGrid extends React.Component {
 					text-lg
 					lg:text-2xl
 				`}
-					disabled={this.games.length - this.state.currentGameIndex - this.state.gameQuantity < 0}
+					disabled={this.games.length - this.state.currentGameIndex - this.state.gameQuantity <= 0}
 					onClick={() => this.animateGridOut(false)}
 				>
 					<FaGreaterThan />
