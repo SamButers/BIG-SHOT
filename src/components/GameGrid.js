@@ -163,7 +163,7 @@ class GameGrid extends React.Component {
 		let c = 0;
 		for(; c < quantity; c += 1) {
 			items.push(
-				<div className={`w-[200px] aspect-square flex justify-center items-center relative group duration-500 hover:cursor-pointer hover:scale-105`} key={c}>
+				<div className={`w-[200px] aspect-square flex justify-center items-center relative group hover:cursor-pointer`} key={c}>
 					<span className={`w-full font-blazma text-primary-500 text-2xl text-center relative z-10 bg-p-black opacity-0 duration-500 group-hover:opacity-100 group-hover:will-change-transform`}>{ this.games[this.state.currentGameIndex + c].name }</span>
 
 					<Image src={this.games[this.state.currentGameIndex + c].img}
@@ -173,6 +173,7 @@ class GameGrid extends React.Component {
 						objectPosition="center"
 						onLoadingComplete={this.incrementLoading}
 						key={this.state.currentGameIndex + c}
+						className="duration-500 group-hover:scale-105"
 					/>
 				</div>
 			);
@@ -207,7 +208,7 @@ class GameGrid extends React.Component {
 					<FaLessThan />
 				</button>
 
-				<div className={`grid grid-rows-2 grid-cols-5 gap-x-2 gap-y-2`} ref={this.gridRef}>
+				<div className={`grid grid-rows-2 grid-cols-5 gap-x-2 gap-y-2 grid-flow-col`} ref={this.gridRef}>
 					{ this.renderGridItems() }
 				</div>
 
