@@ -104,8 +104,6 @@ class GameGrid extends React.Component {
 	incrementLoading() {
 		this.loading.counter += 1;
 
-		console.log(`Counter: ${this.loading.counter} Target: ${this.loading.target}`);
-
 		if(this.loading.counter >= this.loading.target) {
 			this.loading.counter = 0;
 			this.animateGridIn();
@@ -120,7 +118,7 @@ class GameGrid extends React.Component {
 			scale: 0,
 			easing: 'easeOutSine',
 			duration: 500,
-			delay: anime.stagger(200, {direction: previous ? 'reverse' : 'normal'}),
+			delay: anime.stagger(200),
 			complete:  () => {
 				const index = previous ? this.state.currentGameIndex - this.state.gameQuantity : this.state.currentGameIndex + this.state.gameQuantity;
 
@@ -139,7 +137,7 @@ class GameGrid extends React.Component {
 			scale: 1,
 			easing: 'easeInOutQuad',
 			duration: 1000,
-			delay: anime.stagger(200, {direction: this.animateGridIn.reversed ? 'reverse' : 'normal'})
+			delay: anime.stagger(200)
 		});
 	}
 
@@ -165,7 +163,9 @@ class GameGrid extends React.Component {
 		let c = 0;
 		for(; c < quantity; c += 1) {
 			items.push(
-				<div className={`w-[200px] aspect-square bg-p-black relative`} key={c}>
+				<div className={`w-[200px] aspect-square flex justify-center items-center relative group duration-500 hover:cursor-pointer hover:scale-105`} key={c}>
+					<span className={`w-full font-blazma text-primary-500 text-2xl text-center relative z-10 bg-p-black opacity-0 duration-500 group-hover:opacity-100 group-hover:will-change-transform`}>{ this.games[this.state.currentGameIndex + c].name }</span>
+
 					<Image src={this.games[this.state.currentGameIndex + c].img}
 						alt="Game image"
 						layout="fill"
@@ -180,7 +180,7 @@ class GameGrid extends React.Component {
 
 		for(; c < this.state.gameQuantity; c += 1) {
 			items.push(
-				<div className={`w-[200px] aspect-square bg-p-black relative`} key={c}>
+				<div className={`w-[200px] aspect-square relative`} key={c}>
 				</div>
 			);
 		}
@@ -200,7 +200,7 @@ class GameGrid extends React.Component {
 	render() {
 		return (
 			<div className="flex flex-row gap-x-2">
-				<button className="h-auto px-2 bg-[#101010A0] text-2xl text-white duration-200 hover:will-change-transform hover:scale-95"
+				<button className="h-auto px-2 bg-[#101010A0] text-2xl text-white duration-200 disabled:bg-[#A0A0A0A0] hover:will-change-transform enabled:hover:scale-95"
 					disabled={this.state.currentGameIndex - this.state.gameQuantity < 0}
 					onClick={() => this.animateGridOut(true)}
 				>
@@ -211,7 +211,7 @@ class GameGrid extends React.Component {
 					{ this.renderGridItems() }
 				</div>
 
-				<button className="h-auto px-2 bg-[#101010A0] text-2xl text-white duration-200 hover:will-change-transform hover:scale-95"
+				<button className="h-auto px-2 bg-[#101010A0] text-2xl text-white duration-200 disabled:bg-[#A0A0A0A0] hover:will-change-transform enabled:hover:scale-95"
 					disabled={this.games.length - this.state.currentGameIndex - this.state.gameQuantity < 0}
 					onClick={() => this.animateGridOut(false)}
 				>
