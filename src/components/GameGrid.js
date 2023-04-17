@@ -169,11 +169,13 @@ class GameGrid extends React.Component {
 					md:w-[120px]
 					lg:w-[150px]
 					xl:w-[200px]
+					4xl:w-[400px]
 				`} key={c}>
 					<span className={`w-full font-blazma text-primary-500 text-center relative z-10 bg-p-black opacity-0 duration-500 select-none group-hover:opacity-100 group-hover:will-change-transform
 						text-lg
 						md:text-xl
 						lg:text-2xl
+						4xl:text-4xl
 					`}>{ this.games[this.state.currentGameIndex + c].name }</span>
 
 					<Image src={this.games[this.state.currentGameIndex + c].img}
@@ -217,9 +219,11 @@ class GameGrid extends React.Component {
 	render() {
 		return (
 			<div className="flex flex-row gap-x-2">
-				<button className={`h-auto px-2 bg-[#101010A0] text-white duration-200 disabled:bg-[#A0A0A0A0] hover:will-change-transform enabled:hover:scale-95
-					text-lg
-					lg:text-2xl
+				<button className={`h-auto bg-[#101010A0] text-white duration-200 disabled:bg-[#A0A0A0A0] hover:will-change-transform enabled:hover:scale-95
+					text-lg px-1
+					md:px-2
+					lg:text-2xl lg:px-2
+					4xl:text-4xl
 				`}
 					disabled={this.state.currentGameIndex - this.state.gameQuantity < 0}
 					onClick={() => this.animateGridOut(true)}
@@ -227,17 +231,20 @@ class GameGrid extends React.Component {
 					<FaLessThan />
 				</button>
 
-				<div className={`grid gap-x-2 gap-y-2 grid-flow-col
-					grid-rows-2 grid-cols-2
-					md:grid-rows-2 md:grid-cols-5
-					lg:grid-rows-2 lg:grid-cols-5
+				<div className={`grid grid-flow-col
+					grid-rows-2 grid-cols-2 gap-x-1 gap-y-1
+					md:grid-rows-2 md:grid-cols-5 md:gap-x-2 md:gap-y-2
+					lg:grid-rows-2 lg:grid-cols-5 lg:gap-x-2 lg:gap-y-2
+					4xl:gap-x-4 4xl:gap-y-4
 				`} ref={this.gridRef}>
 					{ this.renderGridItems() }
 				</div>
 
-				<button className={`h-auto px-2 bg-[#101010A0] text-white duration-200 disabled:bg-[#A0A0A0A0] hover:will-change-transform enabled:hover:scale-95
-					text-lg
-					lg:text-2xl
+				<button className={`h-auto bg-[#101010A0] text-white duration-200 disabled:bg-[#A0A0A0A0] hover:will-change-transform enabled:hover:scale-95
+					text-lg px-1
+					md:px-2
+					lg:text-2xl lg:px-2
+					4xl:text-4xl
 				`}
 					disabled={this.games.length - this.state.currentGameIndex - this.state.gameQuantity <= 0}
 					onClick={() => this.animateGridOut(false)}
