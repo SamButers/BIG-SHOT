@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import { ToastContainer } from 'react-toastify';
+
 import FixedNavbar from '@/components/FixedNavbar';
 import Footer from '@/components/Footer';
 
@@ -9,6 +11,7 @@ import { debounce } from '@/utils/general';
 import DeviceContext from '@/contexts/deviceContext';
 
 import '@/styles/globals.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App({ Component, pageProps }) {
 	
@@ -46,6 +49,7 @@ export default function App({ Component, pageProps }) {
 				{...pageProps}
 			/>
 			<Footer {...pageProps} />
+			<ToastContainer className="mt-navbar-height 4xl:mt-navbar-height-4xl" />
 		</DeviceContext.Provider>
 	)
 }

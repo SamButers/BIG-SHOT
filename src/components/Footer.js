@@ -4,6 +4,8 @@ import Image from 'next/legacy/image';
 import { FaTwitter, FaFacebook } from 'react-icons/fa';
 import { RiInstagramFill } from 'react-icons/ri';
 
+import NewsletterForm from '@/components/NewsletterForm';
+
 import logoLight from '$/imgs/LogoLight.svg';
 
 class Footer extends React.Component {
@@ -55,30 +57,17 @@ class Footer extends React.Component {
 						`}>[BIG SHOT]</h1>
 					</div>
 
-					<div className={`max-w-[96%] font-glametrix text-white text-center
+					<div className={`max-w-[96%]
 						w-[605px]
 						4xl:w-[1210px]
 					`}>
-						<p className={`font-light select-none
+						<p className={`font-light select-none font-glametrix text-white text-center
 							text-[1.25rem] leading-[1.25rem]
 							md:text-[2rem] md:leading-[2rem]
 							lg:text-[2rem] lg:leading-[2rem]
 							4xl:text-[4rem] 4xl:leading-[4rem]
-						`}>SUBSCRIBE TO RECEIVE OUR [[UNLIMITED PREMIUM TRIAL]] NEWS AND ALSO DOUBLE THE [[Hyperlink Blocked]]</p>
-						<div className={`w-full flex flex-row`}>
-							<input name="E-mail" type="email" className={`grow text-center text-primary-300 outline-none
-								text-[1rem]
-								md:text-[1.5rem]
-								lg:text-[1.5rem]
-								4xl:text-[3rem]
-							`} />
-							<button className={`bg-secondary-500 text-p-black px-3 shrink-0 duration-200 hover:bg-secondary-300
-								text-[1.25rem] leading-[1.25rem]
-								md:text-[2rem] md:leading-[2rem]
-								lg:text-[2rem] lg:leading-[2rem]
-								4xl:text-[4rem] 4xl:leading-[4rem]
-							`}>Subscribe</button>
-						</div>
+						`}>SUBSCRIBE TO RECEIVE OUR [[Unlimited Premium Trial]] NEWS AND ALSO DOUBLE THE [[Hyperlink Blocked]]</p>
+						<NewsletterForm />
 					</div>
 
 					<div className={`flex flex-row text-white gap-x-8
