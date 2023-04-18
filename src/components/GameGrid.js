@@ -120,7 +120,7 @@ class GameGrid extends React.Component {
 		this.inAnimation = true;
 
 		anime({
-			targets: this.gridRef.current.children,
+			targets: [...this.gridRef.current.children].filter(child => !child.hasAttribute('empty')),
 			scale: 0,
 			easing: 'easeOutSine',
 			duration: 500,
@@ -139,7 +139,7 @@ class GameGrid extends React.Component {
 
 	animateGridIn() {
 		anime({
-			targets: this.gridRef.current.children,
+			targets: [...this.gridRef.current.children].filter(child => !child.hasAttribute('empty')),
 			scale: 1,
 			easing: 'easeInOutQuad',
 			duration: 1000,
@@ -208,7 +208,7 @@ class GameGrid extends React.Component {
 					w-[100px]
 					lg:w-[150px]
 					xl:w-[200px]
-				`} key={c}>
+				`} key={c} empty="true">
 				</div>
 			);
 		}
