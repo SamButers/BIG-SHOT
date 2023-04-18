@@ -43,7 +43,8 @@ module.exports = {
         'navbar-height-4xl': '144px',
         'footer-height': '250px',
         'footer-height-sm': '200px',
-        'footer-height-md': '400px'
+        'footer-height-md': '400px',
+        'footer-height-4xl': '800px'
       },
 
       height: {
@@ -52,12 +53,14 @@ module.exports = {
         'footer-height': '250px',
         'footer-height-sm': '200px',
         'footer-height-md': '400px',
+        'footer-height-4xl': '800px'
       },
 
       minHeight: {
         'footer-height': '250px',
         'footer-height-sm': '200px',
-        'footer-height-md': '400px'
+        'footer-height-md': '400px',
+        'footer-height-4xl': '800px'
       }
     },
   },
