@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import FixedNavbar from '@/components/FixedNavbar';
+import Footer from '@/components/Footer';
 
 import { isPhoneBreakpoint, isScreenPortrait, isMobile } from '@/utils/device';
 import { debounce } from '@/utils/general';
@@ -44,6 +45,7 @@ export default function App({ Component, pageProps }) {
 				className="pt-navbar-height 4xl:navbar-height-4xl"
 				{...pageProps}
 			/>
+			<Footer {...pageProps} />
 		</DeviceContext.Provider>
 	)
 }

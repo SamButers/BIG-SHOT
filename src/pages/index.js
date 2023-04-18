@@ -27,7 +27,8 @@ export default Home;
 export async function getStaticProps() {
 	return {
 		props: {
-			navbar: false
+			navbar: false,
+			footer: true
 		}
 	}
 }

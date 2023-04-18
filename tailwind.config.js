@@ -40,11 +40,18 @@ module.exports = {
 
       spacing: {
         'navbar-height': '72px',
-        'navbar-height-4xl': '144px'
+        'navbar-height-4xl': '144px',
+        'footer-height': '400px'
       },
 
       height: {
-        'navbar-height': '72px'
+        'navbar-height': '72px',
+        'navbar-height-4xl': '144px',
+        'footer-height': '400px'
+      },
+
+      minHeight: {
+        'footer-height': '400px'
       }
     },
   },
