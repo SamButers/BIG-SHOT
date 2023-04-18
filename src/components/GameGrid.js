@@ -91,6 +91,8 @@ class GameGrid extends React.Component {
 			counter: 0,
 			target: 0
 		}
+
+		this.inAnimation = false;
 		
 		this.gridRef = createRef();
 
@@ -111,7 +113,11 @@ class GameGrid extends React.Component {
 	}
 
 	animateGridOut(previous) {
+		if(this.inAnimation)
+			return;
+		
 		this.animateGridIn.reversed = previous;
+		this.inAnimation = true;
 
 		anime({
 			targets: this.gridRef.current.children,
@@ -137,7 +143,10 @@ class GameGrid extends React.Component {
 			scale: 1,
 			easing: 'easeInOutQuad',
 			duration: 1000,
-			delay: anime.stagger(200)
+			delay: anime.stagger(200),
+			complete: () => {
+				this.inAnimation = false;
+			}
 		});
 	}
 
@@ -154,6 +163,7 @@ class GameGrid extends React.Component {
 	
 			this.loading.counter = -Math.min(quantity, this.games.length);
 			this.loading.target = Math.min(quantity, this.games.length);
+			this.inAnimation = false;
 		}
 	}
 
