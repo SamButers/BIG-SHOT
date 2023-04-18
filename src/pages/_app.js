@@ -44,7 +44,7 @@ export default function App({ Component, pageProps }) {
 		<DeviceContext.Provider value={deviceInfo}>
 			<FixedNavbar {...pageProps} />
 			<Component
-				className="pt-navbar-height 4xl:navbar-height-4xl"
+				className="pt-navbar-height 4xl:pt-navbar-height-4xl"
 				{...pageProps}
 			/>
 			<Footer {...pageProps} />
