@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import FixedNavbar from '@/components/FixedNavbar';
 import Footer from '@/components/Footer';
 
-import { isPhoneBreakpoint, isScreenPortrait, isMobile } from '@/utils/device';
+import { isAtPhoneBreakpoint, isScreenPortrait, isMobile } from '@/utils/device';
 import { debounce } from '@/utils/general';
 
 import DeviceContext from '@/contexts/deviceContext';
@@ -14,7 +14,6 @@ import '@/styles/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function App({ Component, pageProps }) {
-	
 	const [ deviceInfo, setDeviceInfo ] = useState({
 		isPortrait: false,
 		isAtPhoneBreakpoint: false,
@@ -24,7 +23,7 @@ export default function App({ Component, pageProps }) {
 	function updateDeviceInfo() {
 		setDeviceInfo({
 			isPortrait: isScreenPortrait(),
-			isAtPhoneBreakpoint: isPhoneBreakpoint(),
+			isAtPhoneBreakpoint: isAtPhoneBreakpoint(),
 			isMobile: isMobile()
 		});
 	}

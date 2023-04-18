@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { withRouter } from 'next/router';
 import React from 'react';
 
+import ScrollLink from './ScrollLink';
+
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 import logoLight from '$/imgs/LogoLight.svg';
@@ -55,11 +57,11 @@ class Navbar extends React.Component {
 						lg:flex-row lg:static lg:gap-x-3 lg:mt-2 lg:bg-transparent lg:px-0 lg:max-h-none
 						4xl:text-7xl 4xl:mt-4 4xl:gap-x-6
 					`}>
-						<Link className="duration-300 hover:text-secondary-500" href="/">[ Home ]</Link>
-						<Link className="duration-300 hover:text-secondary-500" href="/#about">[ About ]</Link>
-						<Link className="duration-300 hover:text-secondary-500" href="/#our-games">[ Our Games ]</Link>
-						<Link className="duration-300 hover:text-secondary-500" href="/#contact-us">[ Contact Us ]</Link>
-						<Link className="duration-300 hover:text-secondary-500" href="/news">[ News ]</Link>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/">[ Home ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#about">[ About ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#our-games">[ Our Games ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#contact-us">[ Contact Us ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/news">[ News ]</ScrollLink>
 					</nav>
 
 					<GiHamburgerMenu className={`text-secondary-500 text-4xl duration-300 ${this.state.isMenuHidden ? 'text-white' : 'text-secondary-500'}
