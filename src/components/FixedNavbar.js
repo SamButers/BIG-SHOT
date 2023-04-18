@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 
 class FixedNavbar extends React.Component {
     render() {
-        return this.props.navbar && <Navbar position="fixed" />;
+        return !this.props.noNavbar && <Navbar position="fixed" />;
     }
 }
 
