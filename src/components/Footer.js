@@ -76,9 +76,15 @@ class Footer extends React.Component {
 						lg:text-[2.625rem]
 						4xl:text-[4rem]
 					`}>
-						<FaTwitter className={`duration-300 hover:scale-110 hover:cursor-pointer`} />
-						<RiInstagramFill className={`duration-300 hover:scale-110 hover:cursor-pointer`} />
-						<FaFacebook className={`duration-300 hover:scale-110 hover:cursor-pointer`} />
+						<a href="https://sambuters.netlify.app" target="_blank" rel="noopener">
+							<FaTwitter className={`duration-300 hover:scale-110 hover:cursor-pointer`} />
+						</a>
+						<a href="https://www.linkedin.com/in/sambuters/" target="_blank" rel="noopener">
+							<RiInstagramFill className={`duration-300 hover:scale-110 hover:cursor-pointer`} />
+						</a>
+						<a href="https://github.com/SamButers/BIG-SHOT" target="_blank" rel="noopener">
+							<FaFacebook className={`duration-300 hover:scale-110 hover:cursor-pointer`} />
+						</a>
 					</div>
 
 					<p className={`font-glametrix font-light text-white mb-1
