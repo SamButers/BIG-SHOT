@@ -193,6 +193,7 @@ class GameGrid extends React.Component {
 						layout="fill"
 						objectFit="cover"
 						objectPosition="center"
+						quality={100}
 						onLoadingComplete={this.incrementLoading}
 						key={this.state.currentGameIndex + c}
 						className="duration-500 group-hover:scale-105"

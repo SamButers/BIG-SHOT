@@ -11,7 +11,10 @@ import logoLight from '$/imgs/LogoLight.svg';
 class Footer extends React.Component {
 	render() {
 		return ( !this.props.noFooter &&
-			<div className="w-full">
+			<div className={`w-full
+				mt-16
+				4xl:mt-32
+			`}>
 				<div className={`aspect-[4.31]
 					w-[250px]
 					sm:w-[220px]
