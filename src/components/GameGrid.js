@@ -178,7 +178,7 @@ class GameGrid extends React.Component {
 		let c = 0;
 		for(; c < quantity; c += 1) {
 			items.push(
-				<div className={`aspect-square flex justify-center items-center relative group hover:cursor-pointer
+				<div className={`aspect-square flex justify-center items-center relative group hover:cursor-pointer backface-hidden
 					w-[100px]
 					md:w-[120px]
 					lg:w-[150px]
@@ -209,7 +209,7 @@ class GameGrid extends React.Component {
 
 		for(; c < this.state.gameQuantity; c += 1) {
 			items.push(
-				<div className={`aspect-square relative
+				<div className={`aspect-square relative backface-hidden
 					w-[100px]
 					lg:w-[150px]
 					xl:w-[200px]
