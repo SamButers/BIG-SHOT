@@ -34,11 +34,11 @@ class News extends Page {
 					content: t.rich('post.content', {
 						p: (content) => <p>{ content }</p>,
 						a: (content) => {
-							const linkRegexResult = content.match(/\[(?<anchor>.*)]\((?<url>.*)\)/);
+							const linkRegexResult = content[0].match(/\[(?<anchor>.*)]\((?<url>.*)\)/);
 							const anchor = linkRegexResult.groups.anchor;
 							const url = linkRegexResult.groups.url;
 	
-							return <a href={url}>{ anchor }</a>
+							return <a className="text-primary-500 hover:text-primary-300" href={url} target="_blank" rel="noopener">{ anchor }</a>
 						}
 					})
 				}
