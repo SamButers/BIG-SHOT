@@ -235,9 +235,11 @@ class GameGrid extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if((prevProps.contexts.device.isPortrait != this.props.contexts.device.isPortrait) || (prevProps.contexts.device.isAtPhoneBreakpoint != this.props.contexts.device.isAtPhoneBreakpoint)) {
+		if((prevProps.contexts.device.isPortrait != this.props.contexts.device.isPortrait) || (prevProps.contexts.device.isAtPhoneBreakpoint != this.props.contexts.device.isAtPhoneBreakpoint))
 			this.updateGameQuantity();
-		}
+
+		if(prevProps.messages != this.props.messages)
+			this.getLocaleStrings();
 	}
 
 	render() {

@@ -31,6 +31,11 @@ class Portfolio extends React.Component {
 		this.getLocaleStrings();
 	}
 
+	componentDidUpdate(prevProps) {
+		if(prevProps.messages != this.props.messages)
+			this.getLocaleStrings();
+	}
+
 	render() {
 		return (
 			<section id="our-games" className={`w-full

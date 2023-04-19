@@ -50,6 +50,11 @@ class News extends Page {
 		this.getLocaleStrings();
 	}
 
+	componentDidUpdate(prevProps) {
+		if(prevProps.messages != this.props.messages)
+			this.getLocaleStrings();
+	}
+
 	render() {
 		return (
 			<main className={`w-full min-h-screen overflow-x-hidden ${this.externalClassNames}`}>

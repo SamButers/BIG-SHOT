@@ -120,6 +120,11 @@ class About extends React.Component {
 		this.getLocaleStrings();
 	}
 
+	componentDidUpdate(prevProps) {
+		if(prevProps.messages != this.props.messages)
+			this.getLocaleStrings();
+	}
+
 	render() {
 		return (
 			<section id="about" className={`w-full

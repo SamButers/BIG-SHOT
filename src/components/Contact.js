@@ -31,6 +31,11 @@ class Contact extends React.Component {
 		this.getLocaleStrings();
 	}
 
+	componentDidUpdate(prevProps) {
+		if(prevProps.messages != this.props.messages)
+			this.getLocaleStrings();
+	}
+
 	render() {
 		return (
 			<section id="contact-us" className={`w-full
@@ -45,7 +50,7 @@ class Contact extends React.Component {
 						4xl:text-[8rem] 4xl:leading-[8rem]
 					`}>[ { this.state.localeStrings.title } ]</h1>
 
-<p className={`font-glametrix text-p-black whitespace-pre-wrap text-justify
+					<p className={`font-glametrix text-p-black whitespace-pre-wrap text-justify
 						w-[90%] text-xl
 						lg:w-[90%] lg:text-3xl
 						xl:w-[1120px]
