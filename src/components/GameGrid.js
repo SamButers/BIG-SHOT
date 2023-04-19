@@ -21,6 +21,9 @@ class GameGrid extends React.Component {
 		super(props);
 
 		this.state = {
+			localeStrings: {
+				games: ['', '', '']
+			},
 			currentGameIndex: 0,
 			gameQuantity: 0
 		};
@@ -28,62 +31,62 @@ class GameGrid extends React.Component {
 		this.games = [
 			{
 				img: exampleImage1,
-				name: 'Game'
+				name: 0
 			},
 
 			{
 				img: exampleImage3,
-				name: 'Another game'
+				name: 1
 			},
 
 			{
 				img: exampleImage1,
-				name: 'Game'
+				name: 0
 			},
 
 			{
 				img: exampleImage3,
-				name: 'Another game'
+				name: 1
 			},
 
 			{
 				img: exampleImage1,
-				name: 'Game'
+				name: 0
 			},
 
 			{
 				img: exampleImage3,
-				name: 'Another game'
+				name: 1
 			},
 
 			{
 				img: exampleImage1,
-				name: 'Game'
+				name: 0
 			},
 
 			{
 				img: exampleImage3,
-				name: 'Another game'
+				name: 1
 			},
 
 			{
 				img: exampleImage1,
-				name: 'Game'
+				name: 0
 			},
 
 			{
 				img: exampleImage2,
-				name: 'Yet another game'
+				name: 2
 			},
 
 			{
 				img: exampleImage1,
-				name: 'Game'
+				name: 0
 			},
 
 			{
 				img: exampleImage2,
-				name: 'Yet another game'
+				name: 2
 			}
 		];
 
@@ -101,6 +104,7 @@ class GameGrid extends React.Component {
 		this.animateGridIn = this.animateGridIn.bind(this);
 		this.updateGameQuantity = this.updateGameQuantity.bind(this);
 		this.renderGridItems = this.renderGridItems.bind(this);
+		this.getLocaleStrings = this.getLocaleStrings.bind(this);
 	}
 
 	incrementLoading() {
@@ -186,7 +190,7 @@ class GameGrid extends React.Component {
 						md:text-xl
 						lg:text-2xl
 						4xl:text-4xl
-					`}>{ this.games[this.state.currentGameIndex + c].name }</span>
+					`}>{ this.state.localeStrings.games[this.games[this.state.currentGameIndex + c].name] }</span>
 
 					<Image src={this.games[this.state.currentGameIndex + c].img}
 						alt="Game image"
@@ -217,7 +221,16 @@ class GameGrid extends React.Component {
 		return items;
 	}
 
+	getLocaleStrings() {
+		this.setState({
+			localeStrings: {
+				games: [...this.props.messages.homepage.portfolio.games]
+			}
+		});
+	}
+
 	componentDidMount() {
+		this.getLocaleStrings();
 		this.updateGameQuantity();
 	}
 

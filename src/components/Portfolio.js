@@ -1,19 +1,34 @@
 import React, { createRef } from 'react';
-import Image from 'next/legacy/image';
-
-import { FaLessThan, FaGreaterThan } from 'react-icons/fa';
-
-import anime from 'animejs/lib/anime';
 
 import GameGrid from './GameGrid';
 
-import exampleImage1 from '$/imgs/001.webp';
-import exampleImage2 from '$/imgs/002.webp';
-import exampleImage3 from '$/imgs/003.webp';
+import withTranslations from '@/utils/withTranslations';
 
 class Portfolio extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			localeStrings: {
+				title: ''
+			}
+		}
+
+		this.getLocaleStrings = this.getLocaleStrings.bind(this);
+	}
+
+	getLocaleStrings() {
+		const t = this.props.t;
+
+		this.setState({
+			localeStrings: {
+				title: t('portfolio.title')
+			}
+		});
+	}
+
+	componentDidMount() {
+		this.getLocaleStrings();
 	}
 
 	render() {
@@ -28,13 +43,13 @@ class Portfolio extends React.Component {
 						sm:text-[2rem] sm:leading-[2rem]
 						lg:text-[4rem] lg:leading-[4rem] lg:mb-7
 						4xl:text-[8rem] 4xl:leading-[8rem]
-					`}>[ OUR GAMES ]</h1>
+					`}>[ { this.state.localeStrings.title } ]</h1>
 
-					<GameGrid />
+					<GameGrid messages={this.props.messages} />
 				</div>
 			</section>
 		);
 	}
 }
 
-export default Portfolio;
+export default withTranslations(Portfolio, 'homepage');

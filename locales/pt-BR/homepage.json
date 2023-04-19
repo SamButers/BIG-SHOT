@@ -1,0 +1,41 @@
+{
+	"about": {
+		"who": {
+			"title": "QUEM SOMOS NÓS",
+			"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec justo lectus. Quisque sed sapien non mauris gravida varius et at magna. Quisque porta augue eget nunc ultricies, vitae maximus quam volutpat. In aliquam, lectus vel placerat mattis, lectus mi euismod nisl, vel tristique mauris metus sed enim. Ut eget turpis aliquam, iaculis justo sit amet, efficitur ex. Curabitur eget egestas nunc. Maecenas eleifend sapien dignissim hendrerit aliquam. Integer commodo magna at metus condimentum lacinia. Mauris placerat risus id tellus consectetur, in placerat leo malesuada. Maecenas vestibulum id arcu sit amet tristique. Praesent rutrum hendrerit efficitur. Sed bibendum massa eu rhoncus aliquet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eu dui magna. Curabitur urna urna, pulvinar in lacus in, volutpat porta lorem. Integer vitae odio vitae tortor imperdiet molestie."
+		},
+
+		"what": {
+			"title": "O QUE FAZEMOS",
+			"funding": {
+				"title": "APORTE",
+				"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel sem at velit dapibus cursus eu vitae enim. Aliquam ullamcorper mi ac ante auctor, egestas vulputate nisl imperdiet. Vestibulum eget fringilla neque."
+			},
+
+			"marketing": {
+				"title": "MARKETING",
+				"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel sem at velit dapibus cursus eu vitae enim. Aliquam ullamcorper mi ac ante auctor, egestas vulputate nisl imperdiet. Vestibulum eget fringilla neque."
+			},
+
+			"qa": {
+				"title": "QA",
+				"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel sem at velit dapibus cursus eu vitae enim. Aliquam ullamcorper mi ac ante auctor, egestas vulputate nisl imperdiet. Vestibulum eget fringilla neque."
+			},
+
+			"feedback": {
+				"title": "FEEDBACK",
+				"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel sem at velit dapibus cursus eu vitae enim. Aliquam ullamcorper mi ac ante auctor, egestas vulputate nisl imperdiet. Vestibulum eget fringilla neque."
+			}
+		}
+	},
+
+	"portfolio": {
+		"title": "NOSSOS JOGOS",
+		"games": ["Jogo", "Outro jogo", "Mais um jogo"]
+	},
+
+	"contact": {
+		"title": "CONTATE-NOS",
+		"content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras viverra pretium efficitur. Etiam id sollicitudin nibh. Donec diam lacus, placerat sit amet sollicitudin non, finibus in justo. Donec non sem ante. Duis vitae lobortis augue, et feugiat ipsum. Quisque a consequat tortor. Aliquam non sem sem. Proin semper varius dignissim."
+	}
+}

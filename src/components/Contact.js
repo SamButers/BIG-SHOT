@@ -1,13 +1,34 @@
 import React, { createRef } from 'react';
-import Image from 'next/legacy/image';
 
-import { FaLessThan, FaGreaterThan } from 'react-icons/fa';
-
-import anime from 'animejs/lib/anime';
+import withTranslations from '@/utils/withTranslations';
 
 class Contact extends React.Component {
 	constructor(props) {
 		super(props);
+
+		this.state = {
+			localeStrings: {
+				title: '',
+				content: ''
+			}
+		}
+
+		this.getLocaleStrings = this.getLocaleStrings.bind(this);
+	}
+
+	getLocaleStrings() {
+		const t = this.props.t;
+
+		this.setState({
+			localeStrings: {
+				title: t('contact.title'),
+				content: t('contact.content')
+			}
+		});
+	}
+
+	componentDidMount() {
+		this.getLocaleStrings();
 	}
 
 	render() {
@@ -22,18 +43,18 @@ class Contact extends React.Component {
 						sm:text-[2rem] sm:leading-[2rem]
 						lg:text-[4rem] lg:leading-[4rem] lg:mb-7
 						4xl:text-[8rem] 4xl:leading-[8rem]
-					`}>[ CONTACT US ]</h1>
+					`}>[ { this.state.localeStrings.title } ]</h1>
 
 <p className={`font-glametrix text-p-black whitespace-pre-wrap text-justify
 						w-[90%] text-xl
 						lg:w-[90%] lg:text-3xl
 						xl:w-[1120px]
 						4xl:w-[2240px] 4xl:text-6xl
-					`}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras viverra pretium efficitur. Etiam id sollicitudin nibh. Donec diam lacus, placerat sit amet sollicitudin non, finibus in justo. Donec non sem ante. Duis vitae lobortis augue, et feugiat ipsum. Quisque a consequat tortor. Aliquam non sem sem. Proin semper varius dignissim.</p>
+					`}>{ this.state.localeStrings.content }</p>
 				</div>
 			</section>
 		);
 	}
 }
 
-export default Contact;
+export default withTranslations(Contact, 'homepage');

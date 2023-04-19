@@ -13,9 +13,9 @@ class Home extends Page {
 				<Cover />
 				<div className="w-full relative bg-white">
 					<StickyNavbar />
-					<About />
-					<Portfolio />
-					<Contact />
+					<About messages={this.props.messages} />
+					<Portfolio messages={this.props.messages} />
+					<Contact messages={this.props.messages} />
 				</div>
 			</main>
 		)
@@ -29,7 +29,8 @@ export async function getStaticProps({ locale }) {
 		props: {
 			noNavbar: true,
 			messages: {
-				common: (await import(`../../locales/${locale}/common.json`)).default
+				common: (await import(`../../locales/${locale}/common.json`)).default,
+				homepage: (await import(`../../locales/${locale}/homepage.json`)).default
 			}
 		}
 	}
