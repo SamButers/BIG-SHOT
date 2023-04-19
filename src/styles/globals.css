@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	.rendering-auto {
+		image-rendering: auto;
+	}
+
+	.rendering-pixelated {
+		image-rendering: pixelated;
+	}
+
+	.rendering-crisp-edges {
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: -moz-crisp-edges;
+		image-rendering: crisp-edges;
+	}
+}
+
 @font-face {
 	font-family: 'Blazma';
 	src: url("../../public/assets/fonts/blazma/Blazma.ttf") format("truetype");

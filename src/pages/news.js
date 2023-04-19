@@ -64,6 +64,7 @@ class News extends Page {
 					md:mt-[62px]
 					lg:mt-[62px]
 					xl:w-[1080px]
+					4xl:w-[2160px] 4xl:rendering-pixelated
 				`}>
 					<div>
 						<div className={`w-full relative aspect-[2.3326]`}>
@@ -81,6 +82,7 @@ class News extends Page {
 							text-[1.75rem] leading-[1.75rem]
 							sm:text-[3rem] sm:leading-[3rem]
 							xl:text-[4rem] xl:leading-[4rem]
+							4xl:text-[8rem] 4xl:leading-[8rem]
 						`}>{ this.state.localeStrings.post.title }</h1>
 						<hr className={`border-t border-t-p-black opacity-50`} />
 						<div className={`
@@ -92,6 +94,7 @@ class News extends Page {
 								text-[1rem] leading-[1rem]
 								sm:text-[1.25rem] sm:leading-[1.25rem]
 								xl:text-[1.5rem] xl:leading-[1.5rem]
+								4xl:text-[3rem] 4xl:leading-[3rem]
 							`} dateTime="2023-04-18T10:30:00.000Z">
 								{
 									new Date('2023-04-18T10:30:00.000Z').toLocaleDateString(this.props.router.locale, {
@@ -105,6 +108,7 @@ class News extends Page {
 								text-[1.25rem] leading-[1.25rem]
 								sm:text-[1.5rem] sm:leading-[1.5rem]
 								xl:text-[1.75rem] xl:leading-[1.75rem]
+								4xl:text-[3.5rem] 4xl:leading-[3.5rem]
 							`}>{ this.state.localeStrings.by } Samuel Buters</p>
 						</div>
 						<hr className={`border-t border-t-p-black opacity-50`} />
@@ -113,6 +117,7 @@ class News extends Page {
 							text-[1.25rem] leading-[1.5rem] my-2
 							sm:text-[1.5rem] sm:leading-[1.75rem] sm:my-4
 							xl:text-[1.75rem] xl:leading-[2rem]
+							4xl:text-[3.5rem] 4xl:leading-[4rem]
 						`}>
 							{ this.state.localeStrings.post.content }
 						</div>
