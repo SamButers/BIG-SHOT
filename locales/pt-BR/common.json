@@ -1,0 +1,16 @@
+{
+	"navbar": {
+		"home": "Home",
+		"about": "About",
+		"portfolio": "Our Games",
+		"contact": "Contact Us",
+		"news": "News"
+	},
+
+	"footer": {
+		"newsletter": {
+			"message": "SUBSCRIBE TO RECEIVE OUR [[Unlimited Premium Trial]] NEWS AND ALSO DOUBLE THE [[Hyperlink Blocked]]",
+			"button": "Subscribe"
+		}
+	}
+}

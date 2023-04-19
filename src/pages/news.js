@@ -1,9 +1,55 @@
 import Page from '@/utils/Page';
 import Image from 'next/legacy/image';
+import { withRouter } from 'next/router';
+
+import withTranslations from '@/utils/withTranslations';
 
 import banner from '$/imgs/news/banner.webp';
 
 class News extends Page {
+	constructor(props) {
+		super(props);
+
+		this.state = {
+			localeStrings: {
+				by: '',
+				post: {
+					title: '',
+					content: ''
+				}
+			}
+		}
+
+		this.getLocaleStrings = this.getLocaleStrings.bind(this);
+	}
+
+	getLocaleStrings() {
+		const t = this.props.t;
+
+		this.setState({
+			localeStrings: {
+				by: t('by'),
+				post: {
+					title: t('post.title'),
+					content: t.rich('post.content', {
+						p: (content) => <p>{ content }</p>,
+						a: (content) => {
+							const linkRegexResult = content.match(/\[(?<anchor>.*)]\((?<url>.*)\)/);
+							const anchor = linkRegexResult.groups.anchor;
+							const url = linkRegexResult.groups.url;
+	
+							return <a href={url}>{ anchor }</a>
+						}
+					})
+				}
+			}
+		});
+	}
+
+	componentDidMount() {
+		this.getLocaleStrings();
+	}
+
 	render() {
 		return (
 			<main className={`w-full min-h-screen overflow-x-hidden ${this.externalClassNames}`}>
@@ -30,7 +76,7 @@ class News extends Page {
 							text-[1.75rem] leading-[1.75rem]
 							sm:text-[3rem] sm:leading-[3rem]
 							xl:text-[4rem] xl:leading-[4rem]
-						`}>Graphical assets</h1>
+						`}>{ this.state.localeStrings.post.title }</h1>
 						<hr className={`border-t border-t-p-black opacity-50`} />
 						<div className={`
 							ml-0
@@ -41,9 +87,9 @@ class News extends Page {
 								text-[1rem] leading-[1rem]
 								sm:text-[1.25rem] sm:leading-[1.25rem]
 								xl:text-[1.5rem] xl:leading-[1.5rem]
-							`} datetime="2023-04-18T10:30:00.000Z">
+							`} dateTime="2023-04-18T10:30:00.000Z">
 								{
-									new Date('2023-04-18T10:30:00.000Z').toLocaleDateString('en-US', {
+									new Date('2023-04-18T10:30:00.000Z').toLocaleDateString(this.props.router.locale, {
 										year: 'numeric',
 										month: 'long',
 										day: 'numeric'
@@ -54,7 +100,7 @@ class News extends Page {
 								text-[1.25rem] leading-[1.25rem]
 								sm:text-[1.5rem] sm:leading-[1.5rem]
 								xl:text-[1.75rem] xl:leading-[1.75rem]
-							`}>By Samuel Buters</p>
+							`}>{ this.state.localeStrings.by } Samuel Buters</p>
 						</div>
 						<hr className={`border-t border-t-p-black opacity-50`} />
 
@@ -63,13 +109,7 @@ class News extends Page {
 							sm:text-[1.5rem] sm:leading-[1.75rem] sm:my-4
 							xl:text-[1.75rem] xl:leading-[2rem]
 						`}>
-							<p>{`Hello, everyone! Samuel here, or Sam for short.\n I have decided to use this part of the demo to give credits to the author of some of the graphical resources used, since, well, I had to give credits somewhere and I would probably just put some Lorem Ipsum here anyway, so might as well give it some real use, right?`}</p>
-
-							<p>{`Anyway, the resources I refer to are the ones used in the portfolio section of the homepage and the very banner used for this “post”. The images used are from a collection called Pixel Ladies by the artist enbermudasart, on itch.io.`}</p>
-
-							<p>{`Well, since this “post” is still kinda short, I suppose I will also mention that the design of this website was inspired by a certain character from the game DELTARUNE. If you are familiar with the game, you probably instantly recognized it, maybe even from the website name alone. However, if you are not familiar with it, why not give it a try? It is a pretty fun game and its first two chapters are available right now for free, although some people (I might be part of it, to be honest) would tell you to play UNDERTALE first, which is fair enough, but not really necessary, even according to the author themselves. So, maybe don’t worry too much about that.`}</p>
-						
-							<p>{`Regardless, it seems like my post size quota has been reached so I suppose this is a farewell. For now. Maybe?\n Well, anyway, see ya!`}</p>
+							{ this.state.localeStrings.post.content }
 						</div>
 						<hr className={`border-t border-t-p-black opacity-50`} />
 					</div>
@@ -79,4 +119,15 @@ class News extends Page {
 	}
 }
 
-export default News;
+export default withRouter(withTranslations(News, 'news'));
+
+export async function getStaticProps({ locale }) {
+	return {
+		props: {
+			messages: {
+				common: (await import(`../../locales/${locale}/common.json`)).default,
+				news: (await import(`../../locales/${locale}/news.json`)).default
+			}
+		}
+	}
+}

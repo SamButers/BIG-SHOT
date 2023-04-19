@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { NextIntlProvider } from 'next-intl';
 
 import { ToastContainer } from 'react-toastify';
 
@@ -42,13 +43,15 @@ export default function App({ Component, pageProps }) {
 
 	return (
 		<DeviceContext.Provider value={deviceInfo}>
-			<FixedNavbar {...pageProps} />
-			<Component
-				className="pt-navbar-height 4xl:pt-navbar-height-4xl"
-				{...pageProps}
-			/>
-			<Footer {...pageProps} />
-			<ToastContainer className="mt-navbar-height 4xl:mt-navbar-height-4xl" />
+			<NextIntlProvider messages={pageProps.messages}>
+				<FixedNavbar {...pageProps} />
+				<Component
+					className="pt-navbar-height 4xl:pt-navbar-height-4xl"
+					{...pageProps}
+				/>
+				<Footer {...pageProps} />
+				<ToastContainer className="mt-navbar-height 4xl:mt-navbar-height-4xl" />
+			</NextIntlProvider>
 		</DeviceContext.Provider>
 	)
 }
