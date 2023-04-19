@@ -3,9 +3,11 @@ import Link from 'next/link';
 import { withRouter } from 'next/router';
 import React from 'react';
 
+import { GiHamburgerMenu } from 'react-icons/gi';
+
 import ScrollLink from './ScrollLink';
 
-import { GiHamburgerMenu } from 'react-icons/gi';
+import withTranslations from '@/utils/withTranslations';
 
 import logoLight from '$/imgs/LogoLight.svg';
 
@@ -35,6 +37,8 @@ class Navbar extends React.Component {
 	}
 
 	render() {
+		const t = this.props.t;
+
 		return (
 			<div className={`w-full bg-p-black flex flex-row px-4 left-0 top-0 z-[900] items-center justify-between ${this.props.position}
 				h-navbar-height
@@ -57,11 +61,11 @@ class Navbar extends React.Component {
 						lg:flex-row lg:static lg:gap-x-3 lg:mt-2 lg:bg-transparent lg:px-0 lg:max-h-none
 						4xl:text-7xl 4xl:mt-4 4xl:gap-x-6
 					`}>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/">[ Home ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#about">[ About ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#our-games">[ Our Games ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#contact-us">[ Contact Us ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/news">[ News ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/">[ {t('navbar.home')} ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#about">[ { t('navbar.about') } ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#our-games">[ { t('navbar.portfolio') } ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#contact-us">[ { t('navbar.contact') } ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/news">[ { t('navbar.news') } ]</ScrollLink>
 					</nav>
 
 					<GiHamburgerMenu className={`text-secondary-500 text-4xl duration-300 ${this.state.isMenuHidden ? 'text-white' : 'text-secondary-500'}
@@ -73,4 +77,4 @@ class Navbar extends React.Component {
 	}
 }
 
-export default withRouter(Navbar);
+export default withRouter(withTranslations(Navbar, 'common'));

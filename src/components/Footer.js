@@ -6,10 +6,14 @@ import { RiInstagramFill } from 'react-icons/ri';
 
 import NewsletterForm from '@/components/NewsletterForm';
 
+import withTranslations from '@/utils/withTranslations';
+
 import logoLight from '$/imgs/LogoLight.svg';
 
 class Footer extends React.Component {
 	render() {
+		const t = this.props.t;
+
 		return ( !this.props.noFooter &&
 			<div className={`w-full
 				mt-16
@@ -69,8 +73,8 @@ class Footer extends React.Component {
 							md:text-[2rem] md:leading-[2rem]
 							lg:text-[2rem] lg:leading-[2rem]
 							4xl:text-[4rem] 4xl:leading-[4rem]
-						`}>SUBSCRIBE TO RECEIVE OUR [[Unlimited Premium Trial]] NEWS AND ALSO DOUBLE THE [[Hyperlink Blocked]]</p>
-						<NewsletterForm />
+						`}>{ t('footer.newsletter.message') }</p>
+						<NewsletterForm messages={this.props.messages} />
 					</div>
 
 					<div className={`flex flex-row text-white gap-x-8
@@ -102,4 +106,4 @@ class Footer extends React.Component {
 	}
 }
 
-export default Footer;
+export default withTranslations(Footer, 'common');

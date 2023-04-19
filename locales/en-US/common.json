@@ -10,7 +10,9 @@
 	"footer": {
 		"newsletter": {
 			"message": "SUBSCRIBE TO RECEIVE OUR [[Unlimited Premium Trial]] NEWS AND ALSO DOUBLE THE [[Hyperlink Blocked]]",
-			"button": "Subscribe"
+			"button": "Subscribe",
+			"invalidEmail": "INSERT A PROPER E-MAIL, YOU [[Slippery Snail]]!!!",
+			"successfulSubmit": "YOU [[Little Sponge]]! THIS IS JUST A [[Demonstration Application]], I CANNOT [[Enlist]] YOU IN MY [[Periodically Issued Bulletin]]."
 		}
 	}
 }

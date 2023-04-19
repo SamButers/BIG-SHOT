@@ -2,6 +2,8 @@ import React, { createRef } from 'react';
 
 import { toast } from 'react-toastify';
 
+import withTranslations from '@/utils/withTranslations';
+
 class NewsletterForm extends React.Component {
 	constructor(props) {
 		super(props);
@@ -23,7 +25,7 @@ class NewsletterForm extends React.Component {
 					hasSubmittedIncorrectly: false
 				});
 
-				toast('YOU [[Little Sponge]]! THIS IS JUST A [[Demonstration Application]], I CANNOT [[Enlist]] YOU IN MY [[Periodically Issued Bulletin]].', {
+				toast(this.props.t('footer.newsletter.successfulSubmit'), {
 					className: "!bg-p-black",
 					bodyClassName: "bg-p-black font-glametrix text-primary-500 text-2xl text-justify",
 					progressClassName: "!bg-secondary-500",
@@ -40,6 +42,8 @@ class NewsletterForm extends React.Component {
 	}
 
 	render() {
+		const t = this.props.t;
+
 		return (
 			<div className={`w-full flex flex-row font-glametrix text-white text-center`}>
 				<div className="grow relative group">
@@ -52,7 +56,7 @@ class NewsletterForm extends React.Component {
 
 					<label className={`text-p-black absolute left-0 bottom-full text-[1.25rem] bg-secondary-500 px-1 mb-2 duration-500 select-none ${this.state.hasSubmittedIncorrectly ? 'peer-invalid:visible peer-invalid:opacity-100 peer-valid:invisible peer-valid:opacity-0' : 'invisible opacity-0'}
 						after:content-[""] after:absolute after:left-0 after:top-full after:border-4 after:border-x-transparent after:border-b-transparent after:border-t-secondary-500
-					`}>INSERT A PROPER E-MAIL, YOU [[Slippery Snail]]!!!</label>
+					`}>{ t('footer.newsletter.invalidEmail') }</label>
 				</div>
 				<button className={`bg-secondary-500 text-p-black px-3 shrink-0 duration-200 hover:bg-secondary-300
 					text-[1.25rem] leading-[1.25rem]
@@ -61,10 +65,10 @@ class NewsletterForm extends React.Component {
 					4xl:text-[4rem] 4xl:leading-[4rem]
 				`}
 					onClick={this.submit}
-				>Subscribe</button>
+				>{ t('footer.newsletter.button') }</button>
 			</div>
 		)
 	}
 }
 
-export default NewsletterForm;
+export default withTranslations(NewsletterForm, 'common');

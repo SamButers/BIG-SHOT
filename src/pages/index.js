@@ -24,10 +24,13 @@ class Home extends Page {
 
 export default Home;
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
 	return {
 		props: {
-			noNavbar: true
+			noNavbar: true,
+			messages: {
+				common: (await import(`../../locales/${locale}/common.json`)).default
+			}
 		}
 	}
 }
