@@ -14,5 +14,9 @@
 			"invalidEmail": "INSIRA UM E-MAIL VÁLIDO, SEU [[Lesma Escorregadia]]!!!",
 			"successfulSubmit": "SEU [[Pequena Esponja]]! ISTO É SOMENTE UMA [[Aplicação Demonstrativa]], EU NÃO POSSO LHE [[Alistar]] EM MEU [[Boletim Periodicamente Emitido]]."
 		}
+	},
+
+	"notfound": {
+		"message": "* Mas ninguém veio."
 	}
 }

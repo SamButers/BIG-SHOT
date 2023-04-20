@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import Cover from '@/components/Cover';
 import StickyNavbar from '@/components/StickyNavbar';
 import About from '@/components/About';
@@ -10,6 +12,10 @@ class Home extends Page {
 	render() {
 		return (
 			<main className={`w-full`}>
+				<Head>
+					<title>[ BIG SHOT ]</title>
+				</Head>
+
 				<Cover />
 				<div className="w-full relative bg-white">
 					<StickyNavbar />

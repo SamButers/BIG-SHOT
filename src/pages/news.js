@@ -1,5 +1,6 @@
 import Page from '@/utils/Page';
 import Image from 'next/legacy/image';
+import Head from 'next/head';
 import { withRouter } from 'next/router';
 
 import withTranslations from '@/utils/withTranslations';
@@ -58,6 +59,10 @@ class News extends Page {
 	render() {
 		return (
 			<main className={`w-full min-h-screen overflow-x-hidden ${this.externalClassNames}`}>
+				<Head>
+					<title>{ this.props.t('pageTitle') }</title>
+				</Head>
+
 				<section className={`flex flex-col gap-y-4 mx-auto
 					w-[270px] mt-[24px]
 					sm:w-[540px]

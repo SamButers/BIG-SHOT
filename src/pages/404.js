@@ -1,9 +1,18 @@
 import React from 'react';
+import Head from 'next/head';
+
+import withTranslations from '@/utils/withTranslations';
 
 class Page404 extends React.Component {
 	render() {
+		const t = this.props.t;
+
 		return (
 			<main className="w-full h-screen bg-black relative overflow-hidden font-8bitoperator text-white" ref={this.mainElement}>
+				<Head>
+					<title>404</title>
+				</Head>
+
 				<span className={`absolute left-1/2 -translate-x-1/2 opacity-10 select-none
 					top-1/2 -translate-y-1/2 text-[16rem] leading-[16rem]
 					sm:top-0 sm:translate-y-0 sm:leading-[9rem] sm:mt-4
@@ -23,14 +32,14 @@ class Page404 extends React.Component {
 					<p className={`
 						text-[2rem] leading-[2rem]
 						4xl:text-[4rem] 4xl:leading-[4rem]
-					`}>* But nobody came.</p>
+					`}>{ t('notfound.message') }</p>
 				</div>
 			</main>
 		)
 	}
 }
 
-export default Page404;
+export default withTranslations(Page404, 'common');
 
 export async function getStaticProps({ locale }) {
 	return {

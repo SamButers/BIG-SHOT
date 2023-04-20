@@ -14,5 +14,9 @@
 			"invalidEmail": "INSERT A PROPER E-MAIL, YOU [[Slippery Snail]]!!!",
 			"successfulSubmit": "YOU [[Little Sponge]]! THIS IS JUST A [[Demonstration Application]], I CANNOT [[Enlist]] YOU IN MY [[Periodically Issued Bulletin]]."
 		}
+	},
+
+	"notfound": {
+		"message": "* But nobody came."
 	}
 }
