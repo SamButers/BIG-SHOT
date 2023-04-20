@@ -37,6 +37,7 @@ class Transition extends React.Component {
 		};
 
 		this.areChildrenReady = false;
+		this.isLocaleChanging = false;
 		this.fadeInCompleted = false;
 
 		this.updateScale = this.updateScale.bind(this);
@@ -48,6 +49,8 @@ class Transition extends React.Component {
 		this.pauseAnimations = this.pauseAnimations.bind(this);
 		this.startTransition = this.startTransition.bind(this);
 		this.finishTransition = this.finishTransition.bind(this);
+		this.routeChangeStartHandler = this.routeChangeStartHandler.bind(this);
+		this.routeChangeEndHandler = this.routeChangeEndHandler.bind(this);
 
 		this.debouncedUpdateGridsSize = debounce(this.updateGridsSize, 50);
 	}
@@ -218,11 +221,12 @@ class Transition extends React.Component {
 	startTransition() {
 		this.areChildrenReady = false;
 		this.fadeInCompleted = false;
+		this.isLocaleChanging = false;
 		this.setState({
 			isInTransition: true
 		});
 
-		this.animations.fadeIn.play();
+		this.animations.fadeIn.play();	
 	}
 
 	finishTransition() {
@@ -232,23 +236,41 @@ class Transition extends React.Component {
 			this.areChildrenReady = true;
 	}
 
+	routeChangeEndHandler() {
+		if(this.isLocaleChanging)
+			this.props.updateChildren();
+		else
+			this.finishTransition();
+	}
+
+	routeChangeStartHandler(url) {
+		const pureNewURL = url.replace(/(pt-BR|en-US)\/?/g, '');
+		const newURLpathname = pureNewURL.match(/(?<pathname>.*?)(#(?<hash>.*))?$/).groups.pathname;
+
+		if(newURLpathname != this.props.router.pathname)
+			this.startTransition();
+
+		else
+			this.isLocaleChanging = true;
+	}
+
 	componentDidMount() {
 		this.initApp();
 		this.createAnimations();
 
 		window.addEventListener('resize', this.debouncedUpdateGridsSize);
 
-		this.props.router.events.on('routeChangeStart', this.startTransition);
-		this.props.router.events.on('routeChangeComplete', this.finishTransition);
-		this.props.router.events.on('routeChangeError', this.finishTransition);
+		this.props.router.events.on('routeChangeStart', this.routeChangeStartHandler);
+		this.props.router.events.on('routeChangeComplete', this.routeChangeEndHandler);
+		this.props.router.events.on('routeChangeError', this.routeChangeEndHandler);
 	}
 
 	componentWillUnmount() {
 		window.removeEventListener('resize', this.debouncedUpdateGridsSize);
 
-		this.props.router.events.off('routeChangeStart');
-		this.props.router.events.off('routeChangeComplete');
-		this.props.router.events.off('routeChangeError');
+		this.props.router.events.off('routeChangeStart', this.routeChangeStartHandler);
+		this.props.router.events.off('routeChangeComplete', this.routeChangeEndHandler);
+		this.props.router.events.off('routeChangeError', this.routeChangeEndHandler);
 	}
 
 	componentDidUpdate(prevProps) {
