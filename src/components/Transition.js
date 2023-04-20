@@ -260,8 +260,13 @@ class Transition extends React.Component {
 		return (
 			<main className={`w-full h-screen bg-black fixed z-[9999] top-0 left-0 overflow-hidden opacity-0 ${this.state.isInTransition ? 'visible' : 'invisible'}`} ref={this.mainElement}>
 				<div className={`w-full h-full flex flex-col absolute left-0 top-0 justify-center items-center`}>
-					<div className={`w-[256px] aspect-square relative mb-2 select-none`}>
-						<div className={`w-full absolute left-0 top-0`} ref={this.SOUL}>
+					<div className={`aspect-square relative mb-2 select-none
+						w-[192px]
+						md:w-[256px]
+						lg:w-[256px]
+						4xl:w-[512px]
+					`}>
+						<div className={`w-full absolute left-0 top-0 backface-hidden`} ref={this.SOUL}>
 							<Image src={SOUL}
 								alt="SOUL"
 								layout="responsive"
@@ -272,7 +277,11 @@ class Transition extends React.Component {
 						</div>
 					</div>
 
-					<span className={`font-8bitoperator text-white text-[4rem] leading-[4rem] select-none`}>* LOADING . . .</span>
+					<span className={`font-8bitoperator text-white select-none
+						text-[3rem] leading-[3rem]
+						md:text-[4rem] lg:leading-[4rem]
+						4xl:text-[8rem] 4xl:leading-[8rem]
+					`}>* LOADING . . .</span>
 				</div>
 			</main>
 		)
