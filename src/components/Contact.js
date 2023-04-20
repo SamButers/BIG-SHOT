@@ -1,5 +1,6 @@
 import React, { createRef } from 'react';
 
+import withLocale from '@/utils/withLocale';
 import withTranslations from '@/utils/withTranslations';
 
 class Contact extends React.Component {
@@ -32,7 +33,7 @@ class Contact extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if(prevProps.messages != this.props.messages)
+		if(prevProps.locale != this.props.locale)
 			this.getLocaleStrings();
 	}
 
@@ -62,4 +63,6 @@ class Contact extends React.Component {
 	}
 }
 
-export default withTranslations(Contact, 'homepage');
+const translationsHOC = withTranslations(Contact, 'homepage');
+
+export default withLocale(translationsHOC, 'homepage');

@@ -5,6 +5,7 @@ import { FaLessThan, FaGreaterThan } from 'react-icons/fa';
 
 import anime from 'animejs/lib/anime';
 
+import withLocale from '@/utils/withLocale';
 import withContexts from '@/utils/withContexts';
 
 import deviceContext from '@/contexts/deviceContext';
@@ -12,6 +13,7 @@ import deviceContext from '@/contexts/deviceContext';
 import exampleImage1 from '$/imgs/001.webp';
 import exampleImage2 from '$/imgs/002.webp';
 import exampleImage3 from '$/imgs/003.webp';
+import messagesContext from '@/contexts/messagesContext';
 
 const landscapeQuantity = 10;
 const portraitPhoneQuantity = 4;
@@ -224,7 +226,7 @@ class GameGrid extends React.Component {
 	getLocaleStrings() {
 		this.setState({
 			localeStrings: {
-				games: [...this.props.messages.homepage.portfolio.games]
+				games: [...this.props.contexts.messages.homepage.portfolio.games]
 			}
 		});
 	}
@@ -238,7 +240,7 @@ class GameGrid extends React.Component {
 		if((prevProps.contexts.device.isPortrait != this.props.contexts.device.isPortrait) || (prevProps.contexts.device.isAtPhoneBreakpoint != this.props.contexts.device.isAtPhoneBreakpoint))
 			this.updateGameQuantity();
 
-		if(prevProps.messages != this.props.messages)
+		if(prevProps.locale != this.props.locale)
 			this.getLocaleStrings();
 	}
 
@@ -282,4 +284,6 @@ class GameGrid extends React.Component {
 	}
 }
 
-export default withContexts(GameGrid, {device: deviceContext});
+const localeHOC = withLocale(GameGrid);
+
+export default withContexts(localeHOC, { device: deviceContext, messages: messagesContext });

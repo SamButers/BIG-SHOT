@@ -10,10 +10,12 @@ import Card from '@/components/Card';
 
 import { isPhoneBreakpoint } from '@/utils/device';
 import { debounce } from '@/utils/general';
+import withLocale from '@/utils/withLocale';
 import withContexts from '@/utils/withContexts';
 import withTranslations from '@/utils/withTranslations';
 
 import deviceContext from '@/contexts/deviceContext';
+import messagesContext from '@/contexts/messagesContext';
 
 import logo from '$/imgs/LogoDefault.svg';
 
@@ -121,7 +123,7 @@ class About extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if(prevProps.messages != this.props.messages)
+		if(prevProps.locale != this.props.locale)
 			this.getLocaleStrings();
 	}
 
@@ -255,4 +257,7 @@ class About extends React.Component {
 	}
 }
 
-export default withContexts(withTranslations(About, 'homepage'), {device: deviceContext});
+const translationsHOC = withTranslations(About, 'homepage');
+const localeHOC = withLocale(translationsHOC);
+
+export default withContexts(localeHOC, { device: deviceContext });

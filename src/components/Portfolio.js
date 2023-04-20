@@ -2,6 +2,7 @@ import React, { createRef } from 'react';
 
 import GameGrid from './GameGrid';
 
+import withLocale from '@/utils/withLocale';
 import withTranslations from '@/utils/withTranslations';
 
 class Portfolio extends React.Component {
@@ -32,7 +33,7 @@ class Portfolio extends React.Component {
 	}
 
 	componentDidUpdate(prevProps) {
-		if(prevProps.messages != this.props.messages)
+		if(prevProps.locale != this.props.locale)
 			this.getLocaleStrings();
 	}
 
@@ -50,11 +51,13 @@ class Portfolio extends React.Component {
 						4xl:text-[8rem] 4xl:leading-[8rem]
 					`}>[ { this.state.localeStrings.title } ]</h1>
 
-					<GameGrid messages={this.props.messages} />
+					<GameGrid />
 				</div>
 			</section>
 		);
 	}
 }
 
-export default withTranslations(Portfolio, 'homepage');
+const translationsHOC = withTranslations(Portfolio, 'homepage');
+
+export default withLocale(translationsHOC);

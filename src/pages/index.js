@@ -19,9 +19,9 @@ class Home extends Page {
 				<Cover />
 				<div className="w-full relative bg-white">
 					<StickyNavbar />
-					<About messages={this.props.messages} />
-					<Portfolio messages={this.props.messages} />
-					<Contact messages={this.props.messages} />
+					<About />
+					<Portfolio />
+					<Contact />
 				</div>
 			</main>
 		)

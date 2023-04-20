@@ -53,7 +53,7 @@ class News extends Page {
 	}
 
 	componentDidUpdate(prevProps) {
-		if(prevProps.messages != this.props.messages)
+		if(prevProps.locale != this.props.locale)
 			this.getLocaleStrings();
 	}
 
@@ -135,7 +135,9 @@ class News extends Page {
 	}
 }
 
-export default withLocale(withTranslations(News, 'news'));
+const translationsHOC = withTranslations(News, 'news');
+
+export default withLocale(translationsHOC);
 
 export async function getStaticProps({ locale }) {
 	return {
