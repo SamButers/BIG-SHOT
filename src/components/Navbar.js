@@ -89,7 +89,7 @@ class Navbar extends React.Component {
 				h-navbar-height
 				4xl:h-navbar-height-4xl 4xl:px-8
 			`}>
-				<Link href="/" className={`select-none
+				<Link href="/" scroll={false} className={`select-none
 					w-[104px]
 					4xl:w-[208px]
 				`}>
@@ -109,11 +109,11 @@ class Navbar extends React.Component {
 						lg:flex-row lg:static lg:gap-x-3 lg:mt-2 lg:bg-transparent lg:px-0 lg:max-h-none
 						4xl:text-7xl 4xl:mt-4 4xl:gap-x-6
 					`}>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/">[ {t('navbar.home')} ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#about">[ { t('navbar.about') } ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#our-games">[ { t('navbar.portfolio') } ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#contact-us">[ { t('navbar.contact') } ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/news">[ { t('navbar.news') } ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/" scroll={false}>[ {t('navbar.home')} ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#about" scroll={false}>[ { t('navbar.about') } ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#our-games" scroll={false}>[ { t('navbar.portfolio') } ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#contact-us" scroll={false}>[ { t('navbar.contact') } ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/news" scroll={false}>[ { t('navbar.news') } ]</ScrollLink>
 					</nav>
 
 					<div className={`flex flex-col absolute right-0 top-full px-2 font-glametrix font-light bg-p-black select-none overflow-hidden transition-[max-height] ease-in-out duration-1000 ${this.state.isLanguageMenuHidden ? 'max-h-0' : 'max-h-[72px] 4xl:max-h-[144px]'}

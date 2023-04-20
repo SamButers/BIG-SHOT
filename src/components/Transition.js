@@ -189,6 +189,11 @@ class Transition extends React.Component {
 			],
 			easing: 'linear',
 			autoplay: false,
+			begin: () => {
+				window.scrollTo({
+					top: 0
+				});
+			},
 			complete: () => {
 				this.pauseAnimations();
 				this.setState({
