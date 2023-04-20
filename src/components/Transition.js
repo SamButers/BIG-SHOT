@@ -49,7 +49,7 @@ class Transition extends React.Component {
 		this.startTransition = this.startTransition.bind(this);
 		this.finishTransition = this.finishTransition.bind(this);
 
-		this.debouncedUpdateScale = debounce(this.updateScale, 50);
+		this.debouncedUpdateGridsSize = debounce(this.updateGridsSize, 50);
 	}
 
 	updateScale() {
@@ -72,12 +72,12 @@ class Transition extends React.Component {
 	}
 
 	updateGridsSize() {
+		this.app.resize();
+
 		this.objects.backGrid.width = this.app.view.width;
 		this.objects.backGrid.height = this.app.view.height;
 		this.objects.frontGrid.width = this.app.view.width;
 		this.objects.frontGrid.height = this.app.view.height;
-
-		this.app.resize();
 	}
 
 	initGrid() {
@@ -236,7 +236,7 @@ class Transition extends React.Component {
 		this.initApp();
 		this.createAnimations();
 
-		window.addEventListener('resize', this.debouncedUpdateScale);
+		window.addEventListener('resize', this.debouncedUpdateGridsSize);
 
 		this.props.router.events.on('routeChangeStart', this.startTransition);
 		this.props.router.events.on('routeChangeComplete', this.finishTransition);
@@ -244,7 +244,7 @@ class Transition extends React.Component {
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('resize', this.debouncedUpdateScale);
+		window.removeEventListener('resize', this.debouncedUpdateGridsSize);
 
 		this.props.router.events.off('routeChangeStart');
 		this.props.router.events.off('routeChangeComplete');
@@ -258,7 +258,7 @@ class Transition extends React.Component {
 
 	render() {
 		return (
-			<main className={`w-full h-screen bg-black fixed z-[9999] top-0 left-0 overflow-hidden opacity-0 ${this.state.isInTransition ? 'visible' : 'invisible'}`} ref={this.mainElement}>
+			<div className={`w-full h-screen bg-black fixed z-[9999] top-0 left-0 overflow-hidden opacity-0 ${this.state.isInTransition ? 'visible' : 'invisible'}`} ref={this.mainElement}>
 				<div className={`w-full h-full flex flex-col absolute left-0 top-0 justify-center items-center`}>
 					<div className={`aspect-square relative mb-2 select-none
 						w-[192px]
@@ -283,7 +283,7 @@ class Transition extends React.Component {
 						4xl:text-[8rem] 4xl:leading-[8rem]
 					`}>* LOADING . . .</span>
 				</div>
-			</main>
+			</div>
 		)
 	}
 }
