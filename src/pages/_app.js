@@ -11,6 +11,7 @@ import { isAtPhoneBreakpoint, matchesBreakpoint, isScreenPortrait, isMobile } fr
 import { debounce } from '@/utils/general';
 
 import DeviceContext from '@/contexts/deviceContext';
+import MessagesContext from '@/contexts/messagesContext';
 
 import '@/styles/globals.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -66,17 +67,19 @@ export default function App({ Component, pageProps }) {
 
 	return (
 		<DeviceContext.Provider value={deviceInfo}>
-			<NextIntlProvider messages={pageProps.messages}>
-				<TransitionWrapper>
-					<FixedNavbar {...pageProps} />
-					<Component
-						className="pt-navbar-height 4xl:pt-navbar-height-4xl"
-						{...pageProps}
-					/>
-					<Footer {...pageProps} />
-					<ToastContainer className="mt-navbar-height 4xl:mt-navbar-height-4xl" />
-				</TransitionWrapper>
-			</NextIntlProvider>
+			<MessagesContext.Provider value={pageProps.messages}>
+				<NextIntlProvider messages={pageProps.messages}>
+					<TransitionWrapper>
+						<FixedNavbar {...pageProps} />
+						<Component
+							className="pt-navbar-height 4xl:pt-navbar-height-4xl"
+							{...pageProps}
+						/>
+						<Footer {...pageProps} />
+						<ToastContainer className="mt-navbar-height 4xl:mt-navbar-height-4xl" />
+					</TransitionWrapper>
+				</NextIntlProvider>
+			</MessagesContext.Provider>
 		</DeviceContext.Provider>
 	)
 }
