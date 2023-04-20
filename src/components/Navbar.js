@@ -62,7 +62,7 @@ class Navbar extends React.Component {
 	changeLocale(locale) {
 		if(locale != this.props.router.locale) {
 			const { pathname, query } = this.props.router;
-			this.props.router.push({pathname, query}, pathname, {locale});
+			this.props.router.push({pathname, query}, pathname, {locale, scroll: false});
 
 			this.closeLanguageMenu();
 		}
