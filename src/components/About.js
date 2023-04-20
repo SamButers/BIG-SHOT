@@ -15,7 +15,6 @@ import withContexts from '@/utils/withContexts';
 import withTranslations from '@/utils/withTranslations';
 
 import deviceContext from '@/contexts/deviceContext';
-import messagesContext from '@/contexts/messagesContext';
 
 import logo from '$/imgs/LogoDefault.svg';
 
