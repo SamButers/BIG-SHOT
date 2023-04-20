@@ -2,10 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { withRouter } from 'next/router';
 
-import { isAt4KBreakpoint } from '@/utils/device';
-
-const navbarHeight = 72;
-const navbarHeight4xl = 144;
+import { scrollToElement } from '@/utils/general';
 
 class ScrollLink extends React.Component {
 	constructor(props) {
@@ -26,12 +23,7 @@ class ScrollLink extends React.Component {
 				if(element) {
 					e.preventDefault();
 
-					const offset = isAt4KBreakpoint() ? -navbarHeight4xl : -navbarHeight;
-	
-					window.scrollTo({
-						top: element.getBoundingClientRect().top + window.scrollY + offset,
-						behavior: 'smooth'
-					});
+					scrollToElement(element);
 				}
 			}
 

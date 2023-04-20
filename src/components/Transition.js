@@ -5,7 +5,7 @@ import Image from 'next/legacy/image';
 import * as PIXI from "pixi.js";
 import anime from 'animejs/lib/anime';
 
-import { debounce } from '@/utils/general';
+import { debounce, scrollToElement, scrollToTop } from '@/utils/general';
 import withContexts from '@/utils/withContexts';
 
 import deviceContext from '@/contexts/deviceContext';
@@ -190,9 +190,21 @@ class Transition extends React.Component {
 			easing: 'linear',
 			autoplay: false,
 			begin: () => {
-				window.scrollTo({
-					top: 0
-				});
+				const pathRegexResult = this.props.router.asPath.match(/(?<pathname>.*?)(#(?<hash>.*))?$/);
+				const hash = pathRegexResult.groups.hash;
+
+				if(!hash)
+					scrollToTop();
+				
+				else {
+					const element = document.getElementById(hash);
+
+					if(element)
+						scrollToElement(element, 'auto');
+					else
+						scrollToTop();
+				}
+					
 			},
 			complete: () => {
 				this.pauseAnimations();

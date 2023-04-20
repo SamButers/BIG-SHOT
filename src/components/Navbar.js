@@ -110,9 +110,9 @@ class Navbar extends React.Component {
 						4xl:text-7xl 4xl:mt-4 4xl:gap-x-6
 					`}>
 						<ScrollLink className="duration-300 hover:text-secondary-500" href="/" scroll={false}>[ {t('navbar.home')} ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#about" scroll={false}>[ { t('navbar.about') } ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#our-games" scroll={false}>[ { t('navbar.portfolio') } ]</ScrollLink>
-						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#contact-us" scroll={false}>[ { t('navbar.contact') } ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#about">[ { t('navbar.about') } ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#our-games">[ { t('navbar.portfolio') } ]</ScrollLink>
+						<ScrollLink className="duration-300 hover:text-secondary-500" href="/#contact-us">[ { t('navbar.contact') } ]</ScrollLink>
 						<ScrollLink className="duration-300 hover:text-secondary-500" href="/news" scroll={false}>[ { t('navbar.news') } ]</ScrollLink>
 					</nav>
 
