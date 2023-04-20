@@ -69,3 +69,11 @@
 	font-weight: 300;
 	font-display: block;
 }
+
+@font-face {
+	font-family: 'bitoperator';
+	src: url("../../public/assets/fonts/8bitoperator/8bitoperator_jve.woff") format("woff");
+	font-style: normal;
+	font-weight: normal;
+	font-display: block;
+}

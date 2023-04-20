@@ -26,12 +26,13 @@ module.exports = {
 
       fontFamily: {
         'blazma': ['Blazma', 'sans-serif'],
-        'glametrix': ['Glametrix', 'sans-serif']
+        'glametrix': ['Glametrix', 'sans-serif'],
+        '8bitoperator': ['bitoperator', 'monospace']
       },
 
       screens: {
         'sm-lg': {'raw': '(min-width: 768px) and (max-width: 991px) and (min-aspect-ratio: 1/1)'},
-        'md': {'raw': '(min-width:  768px) and (max-aspect-ratio: 1/1)'},
+        'md': {'raw': '(min-width: 768px) and (max-aspect-ratio: 1/1)'},
         'lg': '992px',
         '3xl': '1920px',
         '4xl': '3840px',
