@@ -18,5 +18,9 @@
 
 	"notfound": {
 		"message": "* Mas ninguém veio."
+	},
+
+	"transition": {
+		"message": "* CARREGANDO . . ."
 	}
 }

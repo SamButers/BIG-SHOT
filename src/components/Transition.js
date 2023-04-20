@@ -11,6 +11,7 @@ import withContexts from '@/utils/withContexts';
 import deviceContext from '@/contexts/deviceContext';
 
 import SOUL from '$/imgs/transition/SOUL.webp';
+import withTranslations from '@/utils/withTranslations';
 
 class Transition extends React.Component {
 	constructor(props) {
@@ -303,20 +304,14 @@ class Transition extends React.Component {
 						text-[3rem] leading-[3rem]
 						md:text-[4rem] lg:leading-[4rem]
 						4xl:text-[8rem] 4xl:leading-[8rem]
-					`}>* LOADING . . .</span>
+					`}>{ this.props.t('transition.message') }</span>
 				</div>
 			</div>
 		)
 	}
 }
 
-export default withContexts(withRouter(Transition), { device: deviceContext });
+const translationsHOC = withTranslations(Transition, 'common');
+const routerHOC = withRouter(translationsHOC);
 
-export async function getStaticProps({ locale }) {
-	return {
-		props: {
-			noNavbar: true,
-			noFooter: true
-		}
-	}
-}
+export default withContexts(routerHOC, { device: deviceContext });
