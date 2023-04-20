@@ -3,6 +3,7 @@ import Image from 'next/legacy/image';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
 
+import withLocale from '@/utils/withLocale';
 import withTranslations from '@/utils/withTranslations';
 
 import banner from '$/imgs/news/banner.webp';
@@ -102,7 +103,7 @@ class News extends Page {
 								4xl:text-[3rem] 4xl:leading-[3rem]
 							`} dateTime="2023-04-18T10:30:00.000Z">
 								{
-									new Date('2023-04-18T10:30:00.000Z').toLocaleDateString(this.props.router.locale, {
+									new Date('2023-04-18T10:30:00.000Z').toLocaleDateString(this.props.locale, {
 										year: 'numeric',
 										month: 'long',
 										day: 'numeric'
@@ -134,7 +135,7 @@ class News extends Page {
 	}
 }
 
-export default withRouter(withTranslations(News, 'news'));
+export default withLocale(withTranslations(News, 'news'));
 
 export async function getStaticProps({ locale }) {
 	return {
