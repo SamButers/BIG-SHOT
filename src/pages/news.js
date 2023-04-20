@@ -14,6 +14,7 @@ class News extends Page {
 
 		this.state = {
 			localeStrings: {
+				pageTitle: '',
 				by: '',
 				post: {
 					title: '',
@@ -30,6 +31,7 @@ class News extends Page {
 
 		this.setState({
 			localeStrings: {
+				pageTitle: t('pageTitle'),
 				by: t('by'),
 				post: {
 					title: t('post.title'),
@@ -61,7 +63,7 @@ class News extends Page {
 		return (
 			<main className={`w-full min-h-screen overflow-x-hidden ${this.externalClassNames}`}>
 				<Head>
-					<title>{ this.props.t('pageTitle') }</title>
+					<title>{ this.state.localeStrings.pageTitle }</title>
 				</Head>
 
 				<section className={`flex flex-col gap-y-4 mx-auto
