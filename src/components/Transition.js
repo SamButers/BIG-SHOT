@@ -154,30 +154,6 @@ class Transition extends React.Component {
 			loop: true
 		});
 
-		this.animations.fadeIn = anime({
-			targets: this.mainElement.current,
-			opacity: [
-				{
-					value: 0,
-					duration: 0
-				},
-
-				{
-					value: 1,
-					duration: fadeTime
-				}
-			],
-			easing: 'linear',
-			autoplay: false,
-			begin: this.playAnimations,
-			complete: () => {
-				if(this.areChildrenReady)
-					this.props.updateChildren(this.animations.fadeOut.play);
-				else
-					this.fadeInCompleted = true;
-			}
-		});
-
 		this.animations.fadeOut = anime({
 			targets: this.mainElement.current,
 			opacity: [
@@ -217,6 +193,31 @@ class Transition extends React.Component {
 				});
 			}
 		});
+		
+		this.animations.fadeIn = anime({
+			targets: this.mainElement.current,
+			opacity: [
+				{
+					value: 0,
+					duration: 0
+				},
+
+				{
+					value: 1,
+					duration: fadeTime
+				}
+			],
+			easing: 'linear',
+			autoplay: false,
+			begin: this.playAnimations,
+			complete: () => {
+				if(this.areChildrenReady)
+					this.props.updateChildren(this.animations.fadeOut.play);
+				else
+					this.fadeInCompleted = true;
+			}
+		});
+
 	}
 	
 	startTransition() {
@@ -281,7 +282,7 @@ class Transition extends React.Component {
 
 	render() {
 		return (
-			<div className={`w-full h-screen bg-black fixed z-[9999] top-0 left-0 overflow-hidden opacity-0 ${this.state.isInTransition ? 'visible' : 'invisible'}`} ref={this.mainElement}>
+			<div className={`w-full h-screen bg-black fixed z-[9999] top-0 left-0 overflow-hidden ${this.state.isInTransition ? 'visible' : 'invisible'}`} ref={this.mainElement}>
 				<div className={`w-full h-full flex flex-col absolute left-0 top-0 justify-center items-center`}>
 					<div className={`aspect-square relative mb-2 select-none
 						w-[192px]
