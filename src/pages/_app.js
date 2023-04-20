@@ -51,9 +51,9 @@ export default function App({ Component, pageProps }) {
 		});
 	}
 
-	const debouncedUpdateDeviceInfo = debounce(updateDeviceInfo, 50);
-
 	useEffect(() => {
+		const debouncedUpdateDeviceInfo = debounce(updateDeviceInfo, 50);
+
 		updateDeviceInfo();
 
 		window.addEventListener('resize', debouncedUpdateDeviceInfo);

@@ -1,12 +1,14 @@
+/* eslint react-hooks/rules-of-hooks: 0 */
+
 import { useContext } from 'react';
 
 function withContexts(Component, contexts) {
-	return (props) => {
+	return function ContextHOC(props) {
 		const contextInstances = {};
 
-		Object.keys(contexts).forEach((key) => {
+		for(const key of Object.keys(contexts)) {
 			contextInstances[key] = useContext(contexts[key]);
-		});
+		}
 
 		return <Component contexts={contextInstances} {...props} />
 	}
